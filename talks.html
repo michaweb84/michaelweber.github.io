@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talks | Michael Weber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --color-accent:    #1e3a5f;
+      --color-accent-lt: #2563a8;
+      --color-surface:   #f6f8fb;
+      --color-border:    #dde3ea;
+    }
+    /* Inline links slightly brighter for contrast */
+    .nav-links a { color: var(--color-muted); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+    .section-title { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    .sidebar-links a { color: var(--color-muted); }
+    .sidebar-links a:hover { color: var(--color-accent); }
+  </style>
+  <style>
+    /* Year-level collapsible — styled like section title */
+    details.year-group { margin-bottom: 1.5rem; }
+    details.year-group > summary.year-summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 0;
+      cursor: pointer; list-style: none; user-select: none;
+      font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-accent);
+      border-bottom: 2px solid var(--color-accent);
+    }
+    details.year-group > summary.year-summary::-webkit-details-marker { display: none; }
+    details.year-group > summary.year-summary::after {
+      content: ''; display: inline-block; width: 8px; height: 8px;
+      border-right: 2px solid var(--color-accent); border-bottom: 2px solid var(--color-accent);
+      transform: rotate(45deg); transition: transform 0.2s; flex-shrink: 0;
+    }
+    details.year-group[open] > summary.year-summary::after { transform: rotate(-135deg); }
+
+    /* Category-level collapsible — inside year */
+    details.cat-group { margin: 0.8rem 0 0.4rem 0; }
+    details.cat-group > summary.cat-summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer; list-style: none; user-select: none;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--color-muted);
+      background: var(--color-surface);
+      border-left: 2px solid var(--color-border);
+    }
+    details.cat-group > summary.cat-summary::-webkit-details-marker { display: none; }
+    details.cat-group > summary.cat-summary::after {
+      content: ''; display: inline-block; width: 7px; height: 7px;
+      border-right: 1.5px solid var(--color-muted); border-bottom: 1.5px solid var(--color-muted);
+      transform: rotate(45deg); transition: transform 0.2s;
+    }
+    details.cat-group[open] > summary.cat-summary::after { transform: rotate(-135deg); }
+
+    /* Item list */
+    .talk-list { list-style: none; padding: 0.5rem 0 0.5rem 1rem; margin: 0; }
+    .talk-list li {
+      font-size: 0.9rem; color: var(--color-muted);
+      padding: 0.2rem 0; border-bottom: 1px solid var(--color-border);
+    }
+    .talk-list li:last-child { border-bottom: none; }
+
+    /* Note at top */
+    .talks-note { font-size: 0.85rem; color: var(--color-subtle); margin-bottom: 2rem; }
+    .coauthor-note { font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Michael Weber</a>
+        <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="data-code.html">Data &amp; Code</a></li>
+      <li><a href="files/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="talks.html" class="active">Talks</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle navigation" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+      </div>
+  </nav>
+
+  <div class="page-wrapper no-sidebar">
+    <main class="main-content">
+
+      <p class="talks-note"><span class="coauthor-note">* indicates presentation by co-author.</span> Years marked "includes scheduled" reflect confirmed future appearances.</p>
+
+      <!-- ══ 2027 ══════════════════════════════════════════════ -->
+      <details class="year-group" open>
+        <summary class="year-summary">2027 <span style="font-size:0.7rem;font-family:var(--font-sans);font-weight:400;letter-spacing:0">(includes scheduled)</span></summary>
+        <details class="cat-group" open>
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>University of Mannheim</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2026 ══════════════════════════════════════════════ -->
+      <details class="year-group" open>
+        <summary class="year-summary">2026 <span style="font-size:0.7rem;font-family:var(--font-sans);font-weight:400;letter-spacing:0">(includes scheduled)</span></summary>
+
+        <details class="cat-group" open>
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>University of South Carolina</li>
+            <li>University of Alberta</li>
+            <li>UC Irvine Econ</li>
+            <li>Monash University</li>
+            <li>Center for Economic Behavior and Inequality (CEBI), Copenhagen</li>
+            <li>Humboldt University</li>
+            <li>Ohio University</li>
+            <li>University of Auckland</li>
+            <li>Auckland University of Technology</li>
+          </ul>
+        </details>
+
+        <details class="cat-group" open>
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>American Economic Association Annual Meeting, Philadelphia *</li>
+            <li>NBER conference on "Inflation: Frontiers of Research and Policy," Cambridge</li>
+            <li>2026 ITAM Finance Conference, Mexico City *</li>
+            <li>Society of Economic Dynamics, Athens</li>
+            <li>LSU Finance Mardi Gras Conference, Baton Rouge *</li>
+            <li>Winter Finance Summit Asia, Appi</li>
+            <li>Midwest Finance Association, Chicago (2 papers) *</li>
+            <li>Spring Finance Workshop, Ischgl</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Frankfurt</li>
+            <li>2026 Annual Conference of the Swiss Society for Financial Market Research, Zurich *</li>
+            <li>2026 Georgia Tech–Federal Reserve Bank of Atlanta Household Finance Conference, Atlanta *</li>
+            <li>2nd Kiel-CEPR Conference on Monetary Policy, Berlin</li>
+            <li>SFS Cavalcade NA 2026, Charlottesville *</li>
+            <li>2nd Workshop on Frontiers in Measurement and Survey Methods, University of Calabria *</li>
+            <li>Mortgage Market Research Conference, Federal Reserve Bank of Philadelphia *</li>
+            <li>2nd CCA-ESCP Workshop on Financial Institutions and Corporate Finance, Turin *</li>
+            <li>Society of Economic Dynamics 2026 Conference, Athens</li>
+            <li>CESifo Area Conference on Macro with Micro Data 2026, Munich</li>
+            <li>European Finance Association Annual Meeting (2 papers), Ghent</li>
+            <li>4th Helsinki Finance Summit on Investor Behavior, Helsinki *</li>
+          </ul>
+        </details>
+
+        <details class="cat-group" open>
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>2026 New Zealand Capital Market Symposium, Auckland</li>
+            <li>Bank Negara Malaysia–BIS Conference on Inflation Expectations and Central Bank Policy in Asia-Pacific, Kuala Lumpur</li>
+            <li>Bank of Korea International Conference 2026, Seoul</li>
+            <li>Bank of Croatia Dubrovnik Economic Conference, Dubrovnik</li>
+            <li>CEMFI–Banco de España Workshop on Household Finances, Madrid</li>
+            <li>National Bank of Belgium Research Conference, Brussels</li>
+            <li>Barcelona Summer Forum "Expectations in Dynamic Macroeconomic Models" Workshop, Barcelona</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2025 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2025 </summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Swiss National Bank</li>
+            <li>University of Liverpool</li>
+            <li>CKGSB Beijing</li>
+            <li>AI &amp; Big Data in Finance Research Forum</li>
+            <li>University College London</li>
+            <li>Brigham Young University</li>
+            <li>Penn State University</li>
+            <li>University of Florida</li>
+            <li>UIUC (Macro)</li>
+            <li>Purdue University</li>
+            <li>Johns Hopkins University</li>
+            <li>ITAM Business School</li>
+            <li>Boston College</li>
+            <li>ETH Zurich</li>
+            <li>United Nations Department of Economic and Social Affairs</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER SI Forecasting and Empirical Methods, Cambridge</li>
+            <li>NBER SI Behavioral Macro, Cambridge</li>
+            <li>American Economic Association Annual Meeting, San Francisco (5 papers)</li>
+            <li>Dolomiti Macro Meetings 2025, Pera di Fassa</li>
+            <li>Ausschuss für Geldtheorie &amp; Geldpolitik, Zurich</li>
+            <li>European Winter Finance Summit, Zuers *</li>
+            <li>Kiel-CEPR Monetary Policy Conference, Berlin * (3 papers)</li>
+            <li>IMF-IDB-U Chile-PUC Chile conference on Fiscal Policy, Santiago de Chile *</li>
+            <li>Midwest Finance Association, Chicago *</li>
+            <li>Conference of the Swiss Society for Financial Market Research, Zurich *</li>
+            <li>2025 University of Kentucky Finance Conference, Lexington *</li>
+            <li>Bundesbank Spring Conference on Expectations of Households and Firms * (2 papers)</li>
+            <li>FIRS Conference, Seoul *</li>
+            <li>Western Finance Association Annual Meeting, Snowbird *</li>
+            <li>International Behavioural Finance Conference, London *</li>
+            <li>China International Conference in Finance, Shenzhen *</li>
+            <li>Zurich-Bern Real Estate Finance and Economics Workshop, Zurich *</li>
+            <li>Society of Economic Dynamics, Copenhagen *</li>
+            <li>BSE Summer Forum: Advances in Economic Research using Bank Transactions Data, Barcelona *</li>
+            <li>BSE Summer Forum: Advances in Networks in Macroeconomics and Trade, Barcelona *</li>
+            <li>CEPR Summer Symposium on Financial Intermediation and Corporate Finance, Athens *</li>
+            <li>Annual Meeting of the Central Bank Research Association, New York * (2 papers)</li>
+            <li>Ghent University Workshop on Empirical Macroeconomics, Ghent *</li>
+            <li>Alpine Finance Summit, Grenoble *</li>
+            <li>European Finance Association Annual Meeting, Paris *</li>
+            <li>European Economic Association Annual Meeting, Bordeaux *</li>
+            <li>Heterogeneous Macro Expectations – New Evidence and Theory, Nuremberg *</li>
+            <li>Politics in Finance Conference, Georgetown *</li>
+            <li>Future Finance Fest, Vilnius *</li>
+            <li>Inflation: Drivers and Dynamics 2025 Conference, Frankfurt</li>
+            <li>Summer Research Conference in Finance, Hyderabad *</li>
+            <li>15th ifo Conference on Macroeconomics and Survey Data, Munich (3 papers) *</li>
+            <li>SITE Conference on Macroeconomics and Uncertainty, Stanford *</li>
+            <li>SFS Cavalcade Asia-Pacific 2025, Beijing *</li>
+            <li>EDMM Workshop, Sydney *</li>
+            <li>Frankfurt-Mannheim Macro Workshop, Frankfurt *</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>Fireside Chat with Bundesbank President Nagel, Frankfurt</li>
+            <li>DAGStat Conference 2025, Berlin</li>
+            <li>Lapland Household Finance Summit, Lapland</li>
+            <li>American Finance Association Annual Meeting Panel on "Polarization and Finance," San Francisco</li>
+            <li>IFMR GSB Krea University Research Symposium on Finance and Economics</li>
+            <li>First Asian Conference on Expectations in Macroeconomics, Macau</li>
+            <li>Econometric Society World Congress Symposium on "Information and Macroeconomics," Seoul</li>
+            <li>Developments in NLP and Generative AI for Finance and Management Research, TU Munich</li>
+            <li>German Finance Association (DGF), Hagen</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2024 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2024</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>HEC Lausanne</li>
+            <li>University of Geneva</li>
+            <li>Bank for International Settlements</li>
+            <li>CUHK Hong Kong</li>
+            <li>CUHK Shenzhen</li>
+            <li>Shanghai University of Finance and Economics</li>
+            <li>Peking University HSBC Business School</li>
+            <li>Cheung Kong Graduate School of Business</li>
+            <li>Alliance Manchester Business School</li>
+            <li>Lancaster University Management School</li>
+            <li>University of Liverpool</li>
+            <li>Purdue University</li>
+            <li>University of Glasgow</li>
+            <li>University of Edinburgh</li>
+            <li>Deutsche Bundesbank</li>
+            <li>Federal Reserve Board</li>
+            <li>International Monetary Fund</li>
+            <li>Carnegie Mellon University</li>
+            <li>State Bank of Pakistan (online)</li>
+            <li>University of Notre Dame</li>
+            <li>G53 Network Brown Bag Seminar Series (online)</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>American Economic Association Annual Meeting, San Antonio</li>
+            <li>NBER SI Impulse and Propagation Mechanism</li>
+            <li>NBER Household Finance Conference "Innovative Data in Household Finance: Challenges and Opportunities," Cambridge</li>
+            <li>Finance Down Under Conference, Melbourne *</li>
+            <li>European Winter Finance Summit, Zermatt *</li>
+            <li>Duke/UNC Asset Pricing Conference, Durham *</li>
+            <li>2024 Weinberg/ECGI Corporate Governance Symposium *</li>
+            <li>ifo Dresden Workshop on Macroeconomics and International Finance, Dresden *</li>
+            <li>Conference of the Swiss Society for Financial Market Research, Zurich (3 papers) *</li>
+            <li>FRB Conference on the Macro Seeds of Financial Imbalances, Washington D.C. *</li>
+            <li>SFS Cavalcade North America, Atlanta (2 papers) *</li>
+            <li>36th Mitsui Symposium: New Frontiers in Asset Pricing, Ann Arbor *</li>
+            <li>Western Finance Association Annual Meeting, Honolulu</li>
+            <li>2024 GT-FRBA Household Finance Conference, Atlanta</li>
+            <li>FIRS Conference, Berlin *</li>
+            <li>Annual Meeting of the Central Bank Research Association, Frankfurt *</li>
+            <li>Driehaus Behavioral Conference, Chicago</li>
+            <li>IMF Advances in Monetary Economics (AME) Conference, Washington D.C.</li>
+            <li>European Finance Association Annual Meeting, Bratislava (5 papers)</li>
+            <li>European Economic Association Annual Meeting, Rotterdam (2 papers) *</li>
+            <li>LTI–Bank of Italy Workshop on "Long-term Investors' Trends," Rome *</li>
+            <li>CESifo Area Conference on Macro, Money and International Finance, Munich</li>
+            <li>Regulating Financial Markets Conference, Frankfurt</li>
+            <li>Annual Meeting of the German Finance Association (DGF), Aachen (2 papers) *</li>
+            <li>Research in Behavioral Finance Conference, Amsterdam *</li>
+            <li>BoC–ECB–NY FED Conference on Expectations Surveys, Central Banks and the Economy, Frankfurt</li>
+            <li>Heterogeneous Households, Firms and Financial Intermediaries, Oslo *</li>
+            <li>Frankfurt-Mannheim Macro Workshop, Frankfurt *</li>
+            <li>14th ifo Conference on Macroeconomics and Survey Data, Munich (2 papers) *</li>
+            <li>University of Sydney Business Financing and Banking Research Workshop, Sydney *</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>Alpine Finance Conference, Innsbruck</li>
+            <li>Economic Fluctuations and Growth Meeting, Shenzhen</li>
+            <li>Swiss Conversations in Monetary Policy, Bern</li>
+            <li>Paris Conference on the Macroeconomics of Expectations, Paris</li>
+            <li>JBF Special Issue Conference on Generative AI in Finance, Dresden</li>
+            <li>Behavioral Research in Finance, Governance and Accounting, Giessen</li>
+            <li>Sustainable and Household Finance, Sydney</li>
+            <li>Inflation, Inflation Expectations and Policy: New Perspectives, Rome</li>
+            <li>Bank of Canada Frontiers of Monetary Policy Design Conference, Ottawa</li>
+            <li>RBI 90th Anniversary Conference on "Central Banking at Crossroads," New Delhi</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2023 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2023</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>UC Berkeley</li>
+            <li>UCLA</li>
+            <li>University of Calgary</li>
+            <li>University of Gothenburg</li>
+            <li>Stockholm Business School</li>
+            <li>Lund University</li>
+            <li>Tulane</li>
+            <li>Georgia State University</li>
+            <li>University of Miami</li>
+            <li>HEC Montréal (Macro)</li>
+            <li>Toulouse School of Economics (Macro)</li>
+            <li>Penn State</li>
+            <li>Purdue University</li>
+            <li>New York Fed</li>
+            <li>University of Maryland</li>
+            <li>University of Amsterdam</li>
+            <li>Atlanta Fed</li>
+            <li>University of Southern California</li>
+            <li>European Investment Bank</li>
+            <li>CERGE-EI</li>
+            <li>University of Mannheim (Accounting)</li>
+            <li>Quoniam Asset Management</li>
+            <li>Bath AFL Seminar Series</li>
+            <li>PKU School of Economics and PKU National School of Development</li>
+            <li>Georgetown Distinguished Speaker Series</li>
+            <li>University of Tokyo</li>
+            <li>European Central Bank</li>
+            <li>UC Santa Barbara DeFi Seminar</li>
+            <li>UT Austin (Macro)</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Monetary Economics</li>
+            <li>NBER Big Data and High-Performance Computing for Financial Economics</li>
+            <li>NBER SI Behavioral Macro</li>
+            <li>NBER SI Big Data and High-Performance Computing for Financial Economics</li>
+            <li>NBER China Meeting</li>
+            <li>American Finance Association Annual Meeting (2 papers), New Orleans</li>
+            <li>American Economic Association Annual Meeting (6 papers), New Orleans</li>
+            <li>Annual Meeting of the Central Bank Research Association, New York</li>
+            <li>DG ECFIN Fiscal Policy Workshop, Brussels</li>
+            <li>14th Annual Hedge Fund Research Conference, Paris *</li>
+            <li>UT Austin Macro Workshop, Austin</li>
+            <li>SUERF, Banca d'Italia, EIB, and ECB conference on "The Use of Surveys for Monetary and Economic Policy," Rome</li>
+            <li>Society of Economic Dynamics, Cartagena</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Frankfurt *</li>
+            <li>Swiss Winter Conference on Financial Intermediation 2023 *</li>
+            <li>Bank of Canada Conference on "The Return of High Inflation: Challenges for Monetary Policy," Ottawa *</li>
+            <li>Future of Financial Information Conference, Paris *</li>
+            <li>CEPR Monetary Economics Conference on "Rethinking Macroeconomic Policy in Times of Turmoil," Aegina *</li>
+            <li>ifo Conference on Macroeconomics and Survey Data, Munich *</li>
+            <li>CESifo Venice Summer Institute Workshop on People's Understanding and Support for Economic Policies, Venice *</li>
+            <li>Society for Financial Econometrics Annual Meeting, Seoul *</li>
+            <li>Western Finance Association Annual Meeting, San Francisco (2 papers)</li>
+            <li>Workshop on Subjective Expectations, Milan</li>
+            <li>Annual Meeting of the Central Bank Research Association, New York (3 papers)</li>
+            <li>China International Conference in Finance, Shanghai *</li>
+            <li>Helsinki Finance Summit, Helsinki *</li>
+            <li>European Finance Association Annual Meeting, Amsterdam *</li>
+            <li>CES-ifo Summer Institute: The 70s are Back: Determinants and Implications of High Inflation, Venice *</li>
+            <li>7th Household Finance Workshop, Frankfurt *</li>
+            <li>22nd FDIC Annual Bank Research Conference, Arlington *</li>
+            <li>2023 International Conference on Household Finance, Deutsche Bundesbank, Frankfurt *</li>
+            <li>New York Fed Fintech Conference, New York *</li>
+            <li>UT Dallas 2023 Fall Finance Conference, Dallas *</li>
+            <li>Bank of Canada–University of Toronto Conference on the Chinese Economy, Toronto *</li>
+            <li>Joint BoC-FRBNY-ECB Conference on Expectations Surveys, Ottawa *</li>
+            <li>4th Annual Boca Corporate Finance and Governance Conference, Boca Raton *</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>BoC-ECB-FRBNY conference on "Survey Expectations 2023," Ottawa</li>
+            <li>National Bank of Belgium conference on "Macroeconomics &amp; Survey Data," Brussels</li>
+            <li>Inaugural Dallas Fed Economic Inclusion Seminar</li>
+            <li>"Challenges for Monetary Policy in Times of High Inflation," Hannover</li>
+            <li>Inaugural Arne Ryde Workshop on "Micro data meet Macro models," Lund</li>
+            <li>Asian Monetary Policy Forum Session on "Inflation Expectations," Singapore</li>
+            <li>Bank of Japan Conference on "Old and New Challenges for Monetary Policy," Tokyo</li>
+            <li>Inquire Europe Conference on "Inflation Risk," Malta</li>
+            <li>2023 Brazilian Meeting of Finance, São Paulo</li>
+            <li>Panel on "Diversity in Economics" at Brazilian Meeting of Finance, São Paulo</li>
+            <li>Darden Academic and Practitioner Symposium on Mutual Funds and ETFs</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2022 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2022</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>UC Berkeley</li>
+            <li>Harvard Business School</li>
+            <li>Columbia Business School</li>
+            <li>University of Chicago (Behavioral Econ)</li>
+            <li>Northwestern University (Macro)</li>
+            <li>UVA Darden</li>
+            <li>University of Oklahoma</li>
+            <li>Toulouse School of Economics (Macro)</li>
+            <li>Ohio State University</li>
+            <li>WU Wien</li>
+            <li>Washington University St. Louis (Accounting)</li>
+            <li>Texas A&amp;M (Macro)</li>
+            <li>Amazon</li>
+            <li>AQR</li>
+            <li>CEPR Seminar Series on Central Bank Communication</li>
+            <li>U.S. Government Accountability Office (2 papers)</li>
+            <li>SFI Lugano</li>
+            <li>Imperial College</li>
+            <li>University of Heidelberg</li>
+            <li>University of Bonn</li>
+            <li>University of Rotterdam</li>
+            <li>University of Maastricht</li>
+            <li>KU Leuven</li>
+            <li>New York Fed</li>
+            <li>Cleveland Fed</li>
+            <li>University of Oxford</li>
+            <li>Norges Bank</li>
+            <li>TU München</li>
+            <li>UIUC (Macro)</li>
+            <li>Durham University (virtual)</li>
+            <li>University of Birmingham (virtual)</li>
+            <li>University of Washington</li>
+            <li>Bath AFL – QF &amp; Fintech Research Seminar Series (virtual)</li>
+            <li>GWU/Federal Reserve Financial Literacy Seminar</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER SI Monetary Economics</li>
+            <li>NBER SI Impulse and Propagation Mechanism</li>
+            <li>American Finance Association Annual Meeting, Boston</li>
+            <li>American Economic Association Annual Meeting (3 papers), Boston</li>
+            <li>HEC-McGill Winter Finance Workshop, Ischgl</li>
+            <li>ifo Conference on Macroeconomics and Survey Data (3 papers), Munich</li>
+            <li>ICEA Inflation Conference (2 papers)</li>
+            <li>World Symposium on Investment Research</li>
+            <li>UBC Winter Finance Conference</li>
+            <li>EGROW Foundation India</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Frankfurt (2 papers)</li>
+            <li>2022 University of Kentucky Finance Conference</li>
+            <li>SFS Cavalcade North America, Chapel Hill</li>
+            <li>ABFER Annual Meeting, Singapore</li>
+            <li>FIRS Conference, Budapest</li>
+            <li>Dubrovnik Economic Conference</li>
+            <li>CEPR Household Finance Workshop, Helsinki *</li>
+            <li>Western Finance Association Annual Meeting, Portland (2 papers)</li>
+            <li>Pathways to Gender Equality in Central Banks Conference</li>
+            <li>EABCN and Deutsche Bundesbank Conference on "Challenges in Empirical Macroeconomics since 2020," Eltville</li>
+            <li>Behavioral Macroeconomics Workshop, Bamberg *</li>
+            <li>Annual IMF Macro-Financial Research Conference, Washington D.C.</li>
+            <li>Annual Meeting of the Central Bank Research Association, Barcelona (5 papers)</li>
+            <li>European Finance Association Annual Meeting, Barcelona (2 papers)</li>
+            <li>European Economic Association Annual Meeting, Milan *</li>
+            <li>6th Household Finance Workshop, Frankfurt *</li>
+            <li>Banque de France/OECD Innovation LAB conference on "Big Data and New Tools to Track Inflation in Real-Time" *</li>
+            <li>Valpolicella Finance Meetings</li>
+            <li>Regulating Financial Markets Conference, 2022</li>
+            <li>The Search and Matching in Macroeconomics and Finance Workshop on Inflation</li>
+            <li>2022 Conference on Diversity, Equity and Inclusion in Economics, Finance, and Central Banking</li>
+            <li>Fifth Banco de España Annual Research Conference, Madrid</li>
+            <li>SAFE Asset Pricing Workshop, Frankfurt</li>
+            <li>BoC-ECB-New York Fed Conference on Expectations Surveys, New York *</li>
+            <li>De Nederlandsche Bank 25th Annual Research Conference *</li>
+            <li>2022 ECB-CEPR Labour Market Workshop</li>
+            <li>FRA Conference, Las Vegas *</li>
+            <li>KIEP-CEPR Conference "The Return of Inflation," Seoul *</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>Barclays Flagship Global Inflation Conference, Miami</li>
+            <li>OeNB &amp; SUERF Conference on "The Return of Inflation," Vienna</li>
+            <li>Euro Area Business Cycle Network Conference on Monetary Policy, Mannheim</li>
+            <li>Survey Data and Probabilistic Expectations, Heidelberg</li>
+            <li>Deutsche Bundesbank and Banque de France Joint Spring Conference, Eltville</li>
+            <li>Bundesbank Lecture in Financial and Monetary Economics, TU Dresden</li>
+            <li>Annual Lecture at Complexity Lab in Economics, Catholic University of Milan</li>
+            <li>Panelist on "Understanding Inflation Expectations" at BCC Conference, Geneva</li>
+            <li>Panelist, Council on Foreign Relations Robert B. Menschel Economics Symposium</li>
+            <li>Policy Panel Moderator on "Inflation is Back" at CEPR Household Finance Conference, Ispra</li>
+            <li>NBER presenter at National Association of Business Economists, Chicago</li>
+            <li>Annual Meeting of the Brazilian Econometric Society</li>
+            <li>Czech National Bank Public Lecture on Inflation Expectations, Prague</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2021 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2021</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Northwestern Kellogg</li>
+            <li>UT Dallas</li>
+            <li>University of Rochester</li>
+            <li>Cornell (Macro)</li>
+            <li>University of Chicago</li>
+            <li>Temple University</li>
+            <li>Bank of Canada</li>
+            <li>Queen Mary University</li>
+            <li>Warwick Business School</li>
+            <li>Inter-American Development Bank</li>
+            <li>Baruch College</li>
+            <li>Swedish House of Finance</li>
+            <li>Banca d'Italia</li>
+            <li>University of Zurich</li>
+            <li>University of Heidelberg</li>
+            <li>HEC Paris Finance</li>
+            <li>FES/ICEF Seminar Moscow</li>
+            <li>Einaudi Institute Rome</li>
+            <li>Florida Macro Seminar Series</li>
+            <li>Webinar on the Future of Financial Information</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Monetary Economics Meeting</li>
+            <li>NBER SI Impulse and Propagation Mechanism</li>
+            <li>NBER SI Big Data and High-Performance Computing for Financial Economics</li>
+            <li>American Finance Association Annual Meeting, Chicago (2 papers)</li>
+            <li>North American Winter Meeting of the Econometric Society, Chicago (2 papers)</li>
+            <li>Diversity and Inclusion in Economics, Finance, and Central Banking Conference, Washington D.C.</li>
+            <li>Society of Economic Dynamics, Barcelona (3 papers)</li>
+            <li>Georgetown Cybersecurity Day, Washington D.C.</li>
+            <li>Cavalcade North America 2021, virtual</li>
+            <li>CEBI Workshop on Subjective Beliefs in Macroeconomics and Household Finance, Copenhagen</li>
+            <li>Midwest Finance Association, Chicago</li>
+            <li>Household Finance Conference at Deutsche Bundesbank, Frankfurt</li>
+            <li>Verein für Socialpolitik Makrooekonomischer Ausschuss, Bonn</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Frankfurt</li>
+            <li>11th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>CEPR European Summer Symposium in International Macroeconomics</li>
+            <li>International Journal of Central Banking 2021 Conference</li>
+            <li>Workshop on Empirical Macroeconomy, Ghent</li>
+            <li>Bank of Ukraine Annual Research Conference, Kiev</li>
+            <li>Heterogeneity of Macroeconomic Expectations Conference, Nuremberg</li>
+            <li>IMK and WSI Workshop on Covid-19 Surveys</li>
+            <li>27th Dubrovnik Economic Conference</li>
+            <li>European Finance Association Annual Meeting, Milan</li>
+            <li>Barcelona Summer Forum: COVID-19 Economics</li>
+            <li>Annual Meeting of the Central Bank Research Association</li>
+            <li>Salento Macro Meetings 2021</li>
+            <li>Verein für Socialpolitik Annual Meeting</li>
+            <li>ECB/Cleveland Fed Inflation Conference</li>
+            <li>Bundesbank, FRIC and CEPR Conference on "Credit Risk over the Business Cycle"</li>
+            <li>5th ECB Conference on Fiscal Policy and EMU Governance *</li>
+            <li>Miami Behavioral Finance Conference</li>
+            <li>ECB–NY Fed Conference on Expectations Surveys: A Tool for Research and Monetary Policy (2 papers)</li>
+            <li>IMF Roundtable on the Labor Market</li>
+            <li>Danmarks Nationalbank, Deutsche Bundesbank and Norges Bank Conference on Stabilization Policies</li>
+            <li>Computational and Financial Econometrics Conference * (2 papers)</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2020 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2020</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>HEC Paris Economics</li>
+            <li>Central Bank of Austria</li>
+            <li>Bank of Finland</li>
+            <li>Central Bank of Colombia</li>
+            <li>Center for the Foundations of Law and Finance</li>
+            <li>Cornell</li>
+            <li>International Monetary Fund</li>
+            <li>Luohan Academy</li>
+            <li>Chicago Booth (Macro, Finance)</li>
+            <li>Banque de France</li>
+            <li>Purdue University</li>
+            <li>Cleveland Fed</li>
+            <li>WU Wien</li>
+            <li>Central Bank of Chile</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER SI Behavioral Macro</li>
+            <li>NBER SI Impulse and Propagation Mechanism</li>
+            <li>NBER SI Gender in the Economy</li>
+            <li>NBER China Meeting</li>
+            <li>NBER Monetary Economics Meeting</li>
+            <li>2020 Franco-German Fiscal Policy Seminar, Federal Ministry of Finance Berlin</li>
+            <li>Norges Bank Central Bank Macro Modelling Workshop, Oslo</li>
+            <li>Virtual Nova/BPI FinTech Conference</li>
+            <li>CESifo–EconPol Virtual Europe Workshop on Public Policy Evaluation</li>
+            <li>IMF Advances in Monetary Economics (AME) Conference, Washington *</li>
+            <li>American Finance Association Annual Meeting, San Diego (3 papers)</li>
+            <li>American Economic Association Annual Meeting, San Diego (2 papers)</li>
+            <li>North American Winter Meeting of the Econometric Society, San Diego</li>
+            <li>SFS Finance Cavalcade 2020, Chapel Hill *</li>
+            <li>Subjective Expectations and the Macroeconomy Conference, Bloomington</li>
+            <li>Workshop on Subjective Beliefs in Macroeconomics, Copenhagen</li>
+            <li>SF Fed Macroeconomics and Monetary Policy Conference, San Francisco *</li>
+            <li>Zurich Macro Workshop, Zurich</li>
+            <li>10th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>Workshop on Subjective Expectations, Tempe</li>
+            <li>FIRS Conference, Budapest *</li>
+            <li>2020 GSU-RFS FinTech Conference, Atlanta *</li>
+            <li>BOG-NYFED Conference on Developments in Empirical Macroeconomics, New York *</li>
+            <li>Western Finance Association Annual Meeting, San Francisco</li>
+            <li>2020 Boulder Summer Conference, Boulder *</li>
+            <li>Annual Meeting of the Central Bank Research Association, London</li>
+            <li>Cleveland Fed's Inflation: Drivers &amp; Dynamics 2020 Conference</li>
+            <li>European Finance Association Annual Meeting, Helsinki</li>
+            <li>European Economic Association Annual Meeting *</li>
+            <li>VfS Annual Conference 2020, Cologne</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes, Invited Talks &amp; Panels</summary>
+          <ul class="talk-list">
+            <li>Fed, Eurosystem, Bank of Japan, Bank of England, Bank of Canada, and BIS Panel on Formation of Expectations, New York</li>
+            <li>Finance Forum PhD Track, Lisbon</li>
+            <li>EAFIT 15th Anniversary Conference Master of Finance, Medellín</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2019 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2019</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Duke University</li>
+            <li>New York University</li>
+            <li>San Francisco Fed</li>
+            <li>Notre Dame</li>
+            <li>Chicago Booth (Macro, Finance)</li>
+            <li>Norwegian School of Economics</li>
+            <li>Nova SBE, Lisbon</li>
+            <li>Banco de España</li>
+            <li>ESSEC, Paris</li>
+            <li>WU Wien</li>
+            <li>Bundesbank</li>
+            <li>Federal Reserve Bank of Cleveland</li>
+            <li>Tinbergen Institute Amsterdam</li>
+            <li>University of Houston</li>
+            <li>Helsinki GSE Departmental Seminar</li>
+            <li>Konstanz</li>
+            <li>University of Luxembourg</li>
+            <li>European Stability Mechanism</li>
+            <li>St. Gallen</li>
+            <li>Norges Bank</li>
+            <li>Riksbank</li>
+            <li>Cheung Kong Graduate School of Business</li>
+            <li>Peterson Institute for International Economics</li>
+            <li>International Monetary Fund</li>
+            <li>Federal Reserve Board</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Corporate Finance</li>
+            <li>NBER Behavioral Finance</li>
+            <li>NBER SI Asset Pricing</li>
+            <li>NBER SI Forecasting and Empirical Methods</li>
+            <li>Brookings Institution</li>
+            <li>ECB &amp; New York Fed Conference on Expectations Surveys, New York</li>
+            <li>CBI &amp; ECB Conference on Household Finance and Consumption, Dublin</li>
+            <li>American Finance Association Annual Meeting, Atlanta (4 papers)</li>
+            <li>American Economic Association Annual Meeting, Atlanta</li>
+            <li>SITE Conference on Macroeconomics and Inequality, Stanford</li>
+            <li>SITE Conference on Psychology and Economics, Stanford</li>
+            <li>SITE Conference on Asset Pricing Theory and Computation, Stanford</li>
+            <li>BI-SHOF Conference, Oslo</li>
+            <li>Society of Economic Dynamics, St. Louis</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Zurich</li>
+            <li>UNC Junior Roundtable, Chapel Hill</li>
+            <li>Annual Research Conference Central Bank of Ukraine, Kiev</li>
+            <li>HeiTueHo 2 Macro Conference, Heidelberg</li>
+            <li>Cleveland Fed's Inflation: Drivers &amp; Dynamics 2019 Conference</li>
+            <li>European Economic Association, Manchester (2 papers)</li>
+            <li>CEIBS Finance and Accounting Symposium, Shanghai *</li>
+            <li>Annual Meeting of the Central Bank Research Association, New York</li>
+            <li>2019 Future of Financial Information Conference, Stockholm *</li>
+            <li>Revelstoke Finance Conference</li>
+            <li>EABCN Conference on New Approaches for Understanding Business Cycles, Mannheim</li>
+            <li>CUHK-RCFS Conference on Corporate Finance and Financial Intermediation</li>
+            <li>Conference on Computational &amp; Financial Econometrics, 2 invited sessions, London</li>
+            <li>European Finance Association Annual Meeting, Lisbon (4 papers)</li>
+            <li>European Central Bank Conference on Monetary Policy: Bridging Science &amp; Practice</li>
+            <li>BYU Red Rock Finance, Springdale</li>
+            <li>Northern Finance Association Annual Meeting, Vancouver *</li>
+            <li>LBS Summer Finance Symposium 2019, London *</li>
+            <li>CEPR European Summer Symposium in Financial Markets, Gerzensee</li>
+            <li>Summer Research Conference 2019 in Finance, Hyderabad *</li>
+            <li>Banque de France–Bundesbank Conference on Household Expectations, Frankfurt</li>
+            <li>SAFE Asset Pricing Workshop, Frankfurt *</li>
+            <li>Santiago Finance Workshop, Santiago de Chile *</li>
+            <li>Miami Behavioral Finance Conference, Miami *</li>
+            <li>Columbia New Technologies Conference, New York *</li>
+            <li>TAU Finance Conference, Tel Aviv *</li>
+            <li>CFPB Conference, Washington D.C. *</li>
+            <li>Christmas Meeting of German Economists Abroad, Frankfurt</li>
+            <li>Corporate Policies and Asset Prices Conference, London</li>
+            <li>Heterogeneous Agents or Heterogeneous Information, Paris (2 papers)</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes</summary>
+          <ul class="talk-list">
+            <li>GAM Systematic Investments Conference, Nova Lisboa</li>
+            <li>Quantitative Finance Summit, Helsinki</li>
+            <li>Fachbereichskolloquium, Tübingen</li>
+            <li>Inaugural UIBE Conference, Beijing</li>
+            <li>Launch of ECB PRISMA Network, Frankfurt</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2018 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2018</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>UC Berkeley Macro</li>
+            <li>Chicago Booth (Finance, Micro)</li>
+            <li>University of Maryland</li>
+            <li>Michigan State University</li>
+            <li>London Business School</li>
+            <li>Wharton</li>
+            <li>IMT Lucca</li>
+            <li>Central Bank of Denmark</li>
+            <li>University of Frankfurt</li>
+            <li>FDIC</li>
+            <li>ESMT</li>
+            <li>Federal Reserve Board</li>
+            <li>Karlsruhe Institute of Technology</li>
+            <li>Aalto University</li>
+            <li>University of Bonn</li>
+            <li>University of Tübingen</li>
+            <li>University of Heidelberg</li>
+            <li>Penn State</li>
+            <li>WHU</li>
+            <li>Ifo Institute, Munich</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Monetary Economics Meeting, Boston</li>
+            <li>American Finance Association Annual Meeting, Philadelphia (3 papers)</li>
+            <li>American Economic Association Annual Meeting, Philadelphia (2 papers)</li>
+            <li>Cleveland Fed's Inflation: Drivers &amp; Dynamics 2018 Conference, Cleveland</li>
+            <li>Verein für Socialpolitik Geldtheoretischer und -politischer Ausschuss, Frankfurt</li>
+            <li>Inaugural SYSBS Finance Conference, Zhuhai</li>
+            <li>Midwest Finance Association, San Antonio (3 papers)</li>
+            <li>The European Winter Finance Summit, St. Moritz *</li>
+            <li>Cowles Conference "Expectations in Macroeconomics: Theory and Evidence"</li>
+            <li>Annual Research Conference Central Bank of Ukraine, Kiev</li>
+            <li>CES-ifo Summer Institute "Expectation Formation," Venice *</li>
+            <li>SFS Finance Cavalcade 2018, New Haven *</li>
+            <li>Western Finance Association Annual Meeting, Coronado Island (2 papers)</li>
+            <li>Workshop on Subjective Expectations and Probabilities in Economics, Munich *</li>
+            <li>14th CSEF-IGIER Symposium on Economics and Institutions, Anacapri</li>
+            <li>Annual Meeting of the Central Bank Research Association, Frankfurt (2 papers)</li>
+            <li>Inaugural Baltic Economic Conference, Vilnius</li>
+            <li>European Finance Association Annual Meeting, Warsaw</li>
+            <li>Asset Prices and the Macroeconomy, Mannheim</li>
+            <li>SITE 2018 – Asset Pricing Theory and Computation, Stanford *</li>
+            <li>CEPR Household Finance Conference, Sicily *</li>
+            <li>Inaugural European Midwest Micro Macro Conference, Bonn</li>
+            <li>Fiscal Policy Seminar of the German Ministry of Finance, Berlin</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Keynotes</summary>
+          <ul class="talk-list">
+            <li>Launch of ECB Network on Micro Prices, Bank of Spain</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2017 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2017</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Berkeley Finance &amp; Macro</li>
+            <li>Chicago Booth</li>
+            <li>Cornell Johnson College of Business</li>
+            <li>Copenhagen Business School</li>
+            <li>University of Geneva</li>
+            <li>Goethe University Frankfurt</li>
+            <li>UC Santa Cruz (Macro)</li>
+            <li>Banque de France</li>
+            <li>University of Illinois at Chicago</li>
+            <li>Insper São Paulo</li>
+            <li>FGV/EBAPE Rio de Janeiro</li>
+            <li>PUC Rio</li>
+            <li>EAFIT University Medellín</li>
+            <li>City University of Hong Kong</li>
+            <li>Hong Kong University</li>
+            <li>Hong Kong University of Science and Technology</li>
+            <li>Chinese University Hong Kong</li>
+            <li>Chinese University Shenzhen</li>
+            <li>Nanyang Technological University Singapore</li>
+            <li>National University of Singapore</li>
+            <li>Singapore Management University</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER SI Forecasting and Empirical Methods</li>
+            <li>NBER Monetary Economics Meeting, Chicago</li>
+            <li>NBER Corporate Finance Meeting, Stanford</li>
+            <li>LSE Workshop on Networks in Macro and Finance, London</li>
+            <li>12th Imperial Conference on Hedge Fund Strategies, London</li>
+            <li>13th FinanceUC Conference, Santiago de Chile</li>
+            <li>6th Luxembourg Asset Management Summit</li>
+            <li>Understanding Inflation: Lessons from the Past, Lessons for the Future, ECB Frankfurt</li>
+            <li>8th Workshop on Theoretical and Experimental Macroeconomics, Stony Brook</li>
+            <li>American Finance Association Annual Meeting, Chicago</li>
+            <li>American Economic Association Annual Meeting, Chicago (4 papers)</li>
+            <li>The European Winter Finance Summit, Zuers</li>
+            <li>HEC-McGill Winter Finance Workshop, Fernie</li>
+            <li>Adam Smith Asset Pricing Workshop, HEC Paris *</li>
+            <li>FIRS 2017 Conference, Hong Kong</li>
+            <li>Texas Finance Festival, Austin *</li>
+            <li>SFS Finance Cavalcade 2017, Nashville (2 papers)</li>
+            <li>CESifo Venice Summer Institute *</li>
+            <li>Revelstoke Finance Conference</li>
+            <li>Annual Corporate Finance Conference, Washington University St. Louis *</li>
+            <li>Asian Meeting of the Econometric Society, Hong Kong</li>
+            <li>Society of Economic Dynamics Annual Meeting, Edinburgh (2 papers)</li>
+            <li>European Economic Association Annual Meeting, Lisbon *</li>
+            <li>German Economic Association Annual Meeting, Vienna *</li>
+            <li>Brandeis Summer Workshop in International Economics and Finance</li>
+            <li>CESifo Area Conference on Macro, Money and International Finance 2017</li>
+            <li>BoC-FRBSF-SFU Conference on Fixed Income and Macro-Finance Research, Vancouver *</li>
+            <li>6th CIRANO-Walton College Workshop on Networks, Montréal</li>
+            <li>8th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>2017 TAU Finance Conference, Tel Aviv *</li>
+            <li>1st Corporate Policies and Asset Prices Conference, London *</li>
+            <li>CEPR Household Finance Conference, Alghero</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2016 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2016</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Columbia GSB (Finance)</li>
+            <li>UCLA Anderson</li>
+            <li>Brigham Young University</li>
+            <li>University of Arizona</li>
+            <li>University of Washington Seattle</li>
+            <li>Tuck-Dartmouth</li>
+            <li>Tsinghua PBC School of Finance</li>
+            <li>Tsinghua SEM</li>
+            <li>City University Hong Kong</li>
+            <li>Chinese University Hong Kong</li>
+            <li>Hong Kong University of Science and Technology</li>
+            <li>Chicago Booth (Finance, twice)</li>
+            <li>Arrowstreet Capital</li>
+            <li>Federal Reserve Bank of Boston</li>
+            <li>Goethe University Frankfurt (Finance)</li>
+            <li>Ludwig Maximilians University Munich CAMS Seminar (LMU)</li>
+            <li>Bank for International Settlements</li>
+            <li>Frankfurt School of Finance</li>
+            <li>Stockholm School of Economics</li>
+            <li>International Monetary Fund</li>
+            <li>Bank of Canada</li>
+            <li>HEC Montréal</li>
+            <li>Central Bank of Chile</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Monetary Economics Meeting, New York</li>
+            <li>NBER SI Capital Markets and the Economy, Boston</li>
+            <li>NBER SI Impulse and Propagation Mechanisms, Boston</li>
+            <li>NBER Corporate Finance Meeting, Chicago *</li>
+            <li>Annual Meeting of the Financial Research Association, Las Vegas</li>
+            <li>CEPR Asset Prices and the Macroeconomy Conference, Mannheim</li>
+            <li>Economic Networks and Finance Conference, London</li>
+            <li>Firms in Macroeconomics Conference, Cambridge</li>
+            <li>Santiago Finance Workshop, Santiago</li>
+            <li>New York Fed Workshop on Subjective Expectations, New York</li>
+            <li>The Price-Stability-Target in the Eurozone and the European Debt Crisis, Berlin</li>
+            <li>University of Washington Summer Finance Conference, Seattle</li>
+            <li>Duke-UNC Asset Pricing Conference, Durham</li>
+            <li>Adam Smith Asset Pricing Workshop, Oxford *</li>
+            <li>3rd International Conference on Sovereign Bond Markets, New York</li>
+            <li>American Finance Association Annual Meeting, San Francisco</li>
+            <li>American Economic Association Annual Meeting, San Francisco *</li>
+            <li>ASU Sonoran Winter Finance Conference, Scottsdale *</li>
+            <li>7th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>9th Conference of the International Research Forum on Monetary Policy, Frankfurt</li>
+            <li>6th Risk Management Conference, Mont Tremblant</li>
+            <li>FIRS 2016 Conference, Porto</li>
+            <li>Corporate Finance Symposium, Stockholm *</li>
+            <li>Conference on Advances in Empirical Macro &amp; Finance, Istanbul *</li>
+            <li>Texas Finance Festival, San Antonio</li>
+            <li>Econometric Society Latin American Meeting, Medellín</li>
+            <li>15th Colloquium on Financial Markets, Cologne *</li>
+            <li>Western Finance Association Annual Meeting, Park City *</li>
+            <li>Inflation: Drivers and Dynamics Conference, Cleveland *</li>
+            <li>Barcelona Summer Forum: Towards Sustained Economic Growth *</li>
+            <li>Barcelona Summer Forum: Asset Prices, Finance and Macroeconomics</li>
+            <li>Econometric Society North American Summer Meeting, Philadelphia *</li>
+            <li>Financial Econometrics &amp; Empirical Asset Pricing, Lancaster</li>
+            <li>Bundesbank PHF Workshop, Eltville *</li>
+            <li>Society of Economic Dynamics Annual Meeting, Toulouse</li>
+            <li>Workshop on Empirical Macroeconomics, Ghent *</li>
+            <li>Conference on Monetary Theory and Policy, Konstanz *</li>
+            <li>European Economic Association Annual Meeting, Geneva (2 papers)</li>
+            <li>European Finance Association Annual Meeting, Oslo (2 papers)</li>
+            <li>69th Econometric Society European Meeting, Geneva</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2015 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2015</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Michigan Ross</li>
+            <li>McGill (Finance)</li>
+            <li>Chicago Harris School Political Economy</li>
+            <li>University of Cambridge (Macro)</li>
+            <li>ESMT Berlin</li>
+            <li>Notre Dame (Macro)</li>
+            <li>Federal Reserve Board</li>
+            <li>Atlanta Fed</li>
+            <li>Deutsche Bundesbank</li>
+            <li>Bank of Italy</li>
+            <li>Bocconi (Macro)</li>
+            <li>Einaudi Institute for Economics and Finance (EIEF)</li>
+            <li>University of Geneva (Finance)</li>
+            <li>University of Mannheim (Finance)</li>
+            <li>Goethe University Frankfurt (Finance)</li>
+            <li>Tilburg University (Finance)</li>
+            <li>Maastricht University (Finance)</li>
+            <li>Leibniz University Hannover (Finance)</li>
+            <li>University of Münster (Finance)</li>
+            <li>Bilkent University (Macro)</li>
+            <li>Ozyegin University (Finance)</li>
+            <li>UC Berkeley (Finance)</li>
+            <li>Yale (Finance)</li>
+            <li>Chicago Booth (Finance)</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Asset Pricing Meeting, Stanford</li>
+            <li>NBER Monetary Economics Meeting, Boston *</li>
+            <li>Colorado Winter Finance Summit, Vail</li>
+            <li>2015 Reserve Bank of Australia's Quantitative Macroeconomics Workshop, Sydney</li>
+            <li>6th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>NBER SI Political Economy, Boston *</li>
+            <li>2015 Household Economics and Decision-Making Conference, Cleveland Fed</li>
+            <li>Society of Economic Dynamics Annual Meeting, Warsaw (3 papers)</li>
+            <li>Econometric Society 2015 World Congress, Montréal</li>
+            <li>CITE: New Quantitative Models of Financial Markets, Chicago</li>
+            <li>5th Macro Finance Workshop, Boston</li>
+            <li>European Finance Association Annual Meeting, Vienna (2 papers)</li>
+            <li>European Economic Association Annual Meeting, Mannheim (2 papers)</li>
+            <li>FIRN Asset Pricing Meeting, Melbourne</li>
+            <li>8th Joint French Macro Workshop, Paris</li>
+            <li>LBS European Winter Finance Conference, St. Anton</li>
+            <li>The European Winter Finance Summit, Schladming</li>
+            <li>HEC-McGill Winter Finance Workshop, Château Mont-Sainte-Anne</li>
+            <li>2015 China International Conference in Finance, Shenzhen</li>
+            <li>Midwest Finance Association Annual Meeting, Chicago (Invited Session)</li>
+            <li>Midwest Macro Meeting, Rochester</li>
+            <li>Chicago Junior Macro and Finance Meetings, Chicago</li>
+            <li>12th Christmas Meeting of German Economists Abroad, Munich</li>
+            <li>Banque de France Conference on Inflation and Price Setting, Paris</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2014 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2014</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>Chicago Booth (Finance, Macro, Micro)</li>
+            <li>Yale SOM</li>
+            <li>London Business School</li>
+            <li>Harvard Business School</li>
+            <li>MIT Sloan</li>
+            <li>Georgetown</li>
+            <li>Stanford GSB</li>
+            <li>NYU Stern</li>
+            <li>Northwestern Kellogg</li>
+            <li>Rochester Simon</li>
+            <li>Boston University</li>
+            <li>Federal Reserve Board</li>
+            <li>University of British Columbia Sauder</li>
+            <li>Bocconi</li>
+            <li>University of Miami</li>
+            <li>Centre de Recerca en Economia International (CREI)</li>
+            <li>AQR Capital Management</li>
+            <li>Einaudi Institute for Economics and Finance (EIEF)</li>
+            <li>University of Zurich</li>
+            <li>Chicago Fed</li>
+            <li>BlackRock</li>
+            <li>Vienna Graduate School of Finance</li>
+            <li>ECB–Bundesbank–House of Finance</li>
+            <li>Columbia Department of Economics and GSB (Macro)</li>
+            <li>Ludwig Maximilians University Munich (LMU)</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER Behavioral Finance Meeting, Cambridge *</li>
+            <li>2014 WFA Meeting, Monterey</li>
+            <li>NBER SI Impulse and Propagation Mechanisms, Boston</li>
+            <li>CEPR European Summer Symposium in Financial Markets, Gerzensee</li>
+            <li>NBER SI EF&amp;G Working Group – Price Dynamics, Boston</li>
+            <li>5th Miami Behavioral Finance Conference</li>
+            <li>Society of Economic Dynamics Annual Meeting, Toronto</li>
+            <li>European Finance Association Annual Meeting, Lugano</li>
+            <li>ERID Duke Conference on Macro and Finance, Asheville</li>
+            <li>Frontiers for Finance Conference 2014, Warwick</li>
+            <li>6th Annual Florida State University SunTrust Beach Conference, Sandestin</li>
+            <li>FMA European Conference, Maastricht</li>
+            <li>2014 Jerusalem Finance Conference</li>
+            <li>European Economic Association Annual Meeting, Toulouse</li>
+            <li>6th Joint French Macro Workshop, Paris</li>
+            <li>UBC Summer Finance Conference, Vancouver</li>
+            <li>SAFE Asset Pricing Workshop, Frankfurt</li>
+            <li>11th Christmas Meeting of German Economists Abroad, Kiel</li>
+            <li>5th ifo Conference on Macroeconomics and Survey Data, Munich</li>
+            <li>21st Annual Meeting of the German Finance Association, Karlsruhe</li>
+            <li>Paris December 2014 Finance Meeting</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2013 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2013</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>UC Berkeley (Macro, Finance)</li>
+            <li>University of Mannheim</li>
+            <li>Karlsruhe Institute of Technology</li>
+            <li>University of St. Gallen</li>
+            <li>Frankfurt School of Finance and Management</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>NBER EF&amp;G Research Meeting, Chicago</li>
+            <li>4th Boston University/Boston Fed Conference on Macro-Finance Linkages</li>
+            <li>NBER SI EF&amp;G Working Group – Price Dynamics, Boston</li>
+            <li>PhD Poster Session at the 10th Annual Corporate Finance Conference, St. Louis</li>
+            <li>Econometric Society North American Winter Meeting, San Diego</li>
+            <li>SFS Finance Cavalcade 2013, Miami</li>
+            <li>NBER Asset Pricing Meeting, Chicago *</li>
+            <li>10th Christmas Meeting of German Economists Abroad, Konstanz</li>
+            <li>1st Annual Conference in Foreign Exchange Markets, Imperial College London</li>
+            <li>Barcelona GSE Summer Forum: Asset Prices and the Business Cycle, Barcelona</li>
+            <li>Annual Conference of the Swiss Society for Financial Market Research, Zurich</li>
+            <li>PanAgora Asset Management, Boston</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2012 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2012</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>University of Mannheim</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>American Economic Association Annual Meeting, Chicago</li>
+            <li>European Finance Association Annual Meeting, Copenhagen</li>
+            <li>European Economic Association Annual Meeting, Malaga</li>
+            <li>Australasian Banking and Finance Conference, Sydney</li>
+            <li>Australasian Banking and Finance Conference PhD Forum, Sydney</li>
+            <li>GEMS Conference, Berkeley</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2010 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2010</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Seminars</summary>
+          <ul class="talk-list">
+            <li>UC Berkeley</li>
+          </ul>
+        </details>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>GEMS Conference, Berkeley</li>
+          </ul>
+        </details>
+      </details>
+
+      <!-- ══ 2009 ══════════════════════════════════════════════ -->
+      <details class="year-group">
+        <summary class="year-summary">2009</summary>
+
+        <details class="cat-group">
+          <summary class="cat-summary">Conferences</summary>
+          <ul class="talk-list">
+            <li>FMA European Conference, Hamburg</li>
+          </ul>
+        </details>
+      </details>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2025 Michael Weber &mdash; Last updated May 2025
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

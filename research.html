@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research — Michael Weber, Professor of Finance at Purdue University and ESMT Berlin.">
+  <title>Research | Michael Weber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --color-accent:    #1e3a5f;
+      --color-accent-lt: #2563a8;
+      --color-surface:   #f6f8fb;
+      --color-border:    #dde3ea;
+    }
+    /* Inline links slightly brighter for contrast */
+    .nav-links a { color: var(--color-muted); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+    .section-title { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    .sidebar-links a { color: var(--color-muted); }
+    .sidebar-links a:hover { color: var(--color-accent); }
+  </style>
+  <script src="bibtex_data.js"></script>
+<style>
+    details.section-group { border: none; margin-bottom: 2rem; }
+    details.section-group > summary.section-summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 0; cursor: pointer; list-style: none; user-select: none;
+      font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-accent); border-bottom: 2px solid var(--color-accent);
+    }
+    details.section-group > summary.section-summary::-webkit-details-marker { display: none; }
+    details.section-group > summary.section-summary:hover { color: var(--color-accent-lt); }
+    details.section-group > summary.section-summary::after {
+      content: ''; display: inline-block; width: 8px; height: 8px;
+      border-right: 2px solid var(--color-accent); border-bottom: 2px solid var(--color-accent);
+      transform: rotate(45deg); transition: transform 0.2s; flex-shrink: 0;
+    }
+    details.section-group[open] > summary.section-summary::after { transform: rotate(-135deg); }
+    details.section-group > summary.section-summary .paper-count {
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0;
+      background: rgba(30,58,95,0.08); color: var(--color-accent);
+      padding: 0.1rem 0.45rem; border-radius: 10px; font-weight: 400;
+    }
+    details.section-group > .paper-group-content { padding: 0; }
+    .highlights-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 0.5rem; }
+    .highlight-card {
+      border-left: 3px solid var(--color-accent);
+      padding: 0.9rem 0 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .highlight-card:last-child { border-bottom: none; }
+    .paper-title a { color: var(--color-text); text-decoration: none; font-weight: inherit; }
+    .paper-title a:hover { color: var(--color-accent); text-decoration: underline; }
+    .paper-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem; margin-bottom: 0.2rem; }
+    .paper-title-row .paper-title { margin-bottom: 0; }
+    .paper-year {
+      font-size: 0.78rem; font-family: var(--font-mono); color: var(--color-subtle);
+      letter-spacing: 0.02em; margin-left: 0.3rem;
+    }
+    .award {
+      display: inline-block; font-size: 0.68rem; font-weight: 500;
+      color: var(--color-accent); background: rgba(30,58,95,0.07);
+      border: 1px solid rgba(30,58,95,0.22);
+      padding: 0.08rem 0.4rem; border-radius: 3px;
+      margin-left: 0.3rem; vertical-align: middle; white-space: nowrap;
+    }
+    .status { font-size: 0.82rem; color: var(--color-muted); margin-bottom: 0.4rem; }
+    .status strong { color: var(--color-text); font-weight: 600; }
+    .cite-btn {
+      font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.6rem;
+      border: 1px solid var(--color-border); border-radius: 3px;
+      color: var(--color-muted); background: transparent; cursor: pointer;
+      letter-spacing: 0.03em; text-transform: uppercase; transition: all 0.15s;
+      font-family: var(--font-sans);
+    }
+    .cite-btn:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(30,58,95,0.04); }
+    #cite-modal {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+      z-index: 2000; align-items: center; justify-content: center;
+    }
+    #cite-modal.open { display: flex; }
+    #cite-modal-inner {
+      background: #fff; border-radius: 6px; padding: 1.5rem;
+      max-width: 640px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    #cite-modal-inner h3 {
+      font-family: var(--font-serif); font-size: 1rem; font-weight: 600;
+      margin-bottom: 0.75rem; color: var(--color-text);
+    }
+    #cite-pre {
+      font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: 4px; padding: 0.9rem 1rem; white-space: pre-wrap;
+      word-break: break-word; max-height: 280px; overflow-y: auto;
+      color: var(--color-text); margin-bottom: 0.9rem;
+    }
+    #cite-modal-btns { display: flex; gap: 0.6rem; }
+    #cite-copy-btn {
+      font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.9rem;
+      background: var(--color-accent); color: #fff; border: none;
+      border-radius: 4px; cursor: pointer; font-family: var(--font-sans);
+    }
+    #cite-copy-btn:hover { background: var(--color-accent-lt); }
+    #cite-close-btn {
+      font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.9rem;
+      background: transparent; color: var(--color-muted);
+      border: 1px solid var(--color-border); border-radius: 4px;
+      cursor: pointer; font-family: var(--font-sans);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Michael Weber</a>
+        <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="data-code.html">Data &amp; Code</a></li>
+      <li><a href="files/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle navigation" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+      </div>
+  </nav>
+
+  <div id="cite-modal" role="dialog" aria-modal="true">
+    <div id="cite-modal-inner">
+      <h3>BibTeX Citation</h3>
+      <pre id="cite-pre"></pre>
+      <div id="cite-modal-btns">
+        <button id="cite-copy-btn" onclick="copyCite()">Copy to Clipboard</button>
+        <button id="cite-close-btn" onclick="closeCite()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper no-sidebar">
+    <main class="main-content">
+
+      <!-- ══ SELECTED WORKS ════════════════════════════════════ -->
+      <details class="section-group" open>
+        <summary class="section-summary">
+          <span class="summary-left">Selected Works <span class="paper-count">7</span></span>
+        </summary>
+        <div class="paper-group-content">
+          <ul class="highlights-list paper-list" style="padding:0.5rem 0 0 0;">
+            <li class="paper-item">
+              <div class="paper-title">A Temporary VAT Cut as Unconventional Fiscal Policy</div>
+              <div class="paper-authors">with <a href="https://sites.nd.edu/rbachman/" target="_blank">R. Bachmann</a>, <a href="https://www.benjaminborn.de/" target="_blank">B. Born</a>, <a href="https://sites.google.com/site/ogoldfayn/home" target="_blank">O. Goldfayn-Frank</a>, <a href="https://georgikocharkov.de/" target="_blank">G. Kocharkov</a>, <a href="https://www.ralphluetticke.com/" target="_blank">R. Luetticke</a></div>
+              <div class="paper-venue"><em>Accepted for publication, Review of Economic Studies</em></div>
+              <div class="paper-links">
+                <a href="papers/Bachmann_EtAl_2026_TemporaryVatCutAsUnconventional_RES.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2026A')">Cite</button>
+                <a href="https://www.nber.org/papers/w29442" class="paper-link" target="_blank">NBER</a>
+                <a href="https://cepr.org/voxeu/columns/temporary-vat-cut-unconventional-fiscal-policy" class="paper-link" target="_blank">VoxEU</a>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://www.journals.uchicago.edu/doi/abs/10.1086/730426" target="_blank">Big G</a></div>
+              <div class="paper-authors">with <a href="https://coxlydia.com/" target="_blank">L. Cox</a>, <a href="https://sites.google.com/site/muellergernot/" target="_blank">G. Mueller</a>, <a href="https://sites.google.com/site/pastenernesto/" target="_blank">E. Pasten</a>, <a href="http://people.brandeis.edu/~schoenle/" target="_blank">R. Schoenle</a></div>
+              <div class="paper-venue"><em>Journal of Political Economy</em>, 2024</div>
+              <div class="paper-links">
+                <a href="papers/Cox_EtAl_2024_BigG_JPE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2024Big')">Cite</button>
+                <a href="https://www.nber.org/papers/w27034" class="paper-link" target="_blank">NBER</a>
+                <a href="https://bfi.uchicago.edu/working-paper/big-g/" class="paper-link" target="_blank">BFI</a>
+                <a href="https://www.cesifo.org/en/publikationen/2020/working-paper/big-g" class="paper-link" target="_blank">CESifo</a>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://www.journals.uchicago.edu/doi/10.1086/713192" target="_blank">Exposure to Grocery Prices and Inflation Expectations</a></div>
+              <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://eml.berkeley.edu/~ulrike/" target="_blank">U. Malmendier</a>, J. Ospina</div>
+              <div class="paper-venue"><em>Journal of Political Economy</em>, 2021</div>
+              <div class="paper-links">
+                <a href="papers/DAcunto_EtAl_2021_ExposureGroceryPricesInflationExpectations_JPE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2021Exposure')">Cite</button>
+                <a href="https://www.nber.org/papers/w26237" class="paper-link" target="_blank">NBER</a>
+                <a href="https://cepr.org/voxeu/columns/exposure-frequent-price-changes-shapes-inflation-expectations" class="paper-link" target="_blank">VoxEU</a>
+                <a href="https://www.cesifo.org/en/publikationen/2019/working-paper/exposure-daily-price-changes-and-inflation-expectations" class="paper-link" target="_blank">CESifo</a>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://academic.oup.com/restud/article-abstract/90/5/2292/6782973" target="_blank">IQ, Expectations, and Choice</a></div>
+              <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="http://finance.fbv.kit.edu/14_1038.php" target="_blank">D. Hoang</a>, <a href="https://ideas.repec.org/f/ppa314.html" target="_blank">M. Paloviita</a></div>
+              <div class="paper-venue"><em>Review of Economic Studies</em>, 2023</div>
+              <div class="paper-links">
+                <a href="papers/DAcunto_EtAl_2023_IqExpectationsChoice_RES.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2023IQ')">Cite</button>
+                <a href="https://www.nber.org/papers/w25496" class="paper-link" target="_blank">NBER</a>
+                <a href="https://cepr.org/voxeu/columns/iq-expectations-and-choice" class="paper-link" target="_blank">VoxEU</a>
+                <a href="https://bfi.uchicago.edu/working-paper/iq-expectations-and-choice/" class="paper-link" target="_blank">BFI</a>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://www.journals.uchicago.edu/doi/abs/10.1086/718982" target="_blank">Monetary Policy Communications and Their Effects on Household Inflation Expectations</a></div>
+              <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+              <div class="paper-venue"><em>Journal of Political Economy</em>, 2022</div>
+              <div class="paper-links">
+                <a href="papers/Coibion_Gorodnichenko_Weber_2022_MonetaryPolicyCommunicationsEffectsHousehold_JPE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2022Monetary')">Cite</button>
+                <a href="https://www.nber.org/papers/w25482" class="paper-link" target="_blank">NBER</a>
+                <a href="https://cepr.org/voxeu/columns/how-inflation-expectations-affect-households-spending-decisions" class="paper-link" target="_blank">VoxEU</a>
+                <a href="https://bfi.uchicago.edu/working-paper/monetary-policy-communications-and-their-effects-on-household-inflation-expectations/" class="paper-link" target="_blank">BFI</a>
+                <a href="https://www.cesifo.org/en/publikationen/2019/working-paper/monetary-policy-communications-and-their-effects-household" class="paper-link" target="_blank">CESifo</a>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA22764" target="_blank">Tell Me Something I Don&#x27;t Already Know: Learning in Low- and High-Inflation Environments</a></div>
+              <div class="paper-authors">with <a href="https://www.bernardocandia.com/" target="_blank">B. Candia</a>, <a href="https://afrouzi.com/" target="_blank">H. Afrouzi</a>, <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+              <div class="paper-venue"><em>Econometrica</em>, 2025</div>
+              <div class="paper-links">
+                <a href="papers/Weber_EtAl_2025_TellMeSomethingIDon_Econometrica.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2025Tell')">Cite</button>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20221167" target="_blank">The Effect of Macroeconomic Uncertainty on Household Spending</a></div>
+              <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://sites.google.com/view/georgarakos" target="_blank">D. Georgarakos</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a>, <a href="https://www.ecb.europa.eu/pub/research/authors/profiles/geoff-kenny.en.html" target="_blank">G. Kenny</a></div>
+              <div class="paper-venue"><em>American Economic Review</em>, 2024</div>
+              <div class="paper-links">
+                <a href="papers/Coibion_EtAl_2024_EffectMacroeconomicUncertaintyHouseholdSpending_AER.pdf" class="paper-link" target="_blank">Download Paper</a>
+                <button class="paper-link cite-btn" onclick="showCite('Weber2024The')">Cite</button>
+                <a href="https://www.nber.org/papers/w28625" class="paper-link" target="_blank">NBER</a>
+                <a href="https://cepr.org/voxeu/columns/effect-macroeconomic-uncertainty-household-spending" class="paper-link" target="_blank">VoxEU</a>
+                <a href="https://bfi.uchicago.edu/working-paper/the-effect-of-macroeconomic-uncertainty-on-household-spending/" class="paper-link" target="_blank">BFI</a>
+                <a href="https://www.iza.org/publications/dp/14213/the-effect-of-macroeconomic-uncertainty-on-household-spending" class="paper-link" target="_blank">IZA</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- ══ WORKING PAPERS ════════════════════════════════════ -->
+      <details class="section-group" open>
+        <summary class="section-summary">
+          <span class="summary-left">Working Papers <span class="paper-count">30</span></span>
+        </summary>
+        <div class="paper-group-content">
+          <ul class="paper-list" style="padding:0.5rem 0 0 0;">
+              <li class="paper-item">
+                <div class="paper-title">Beyond Arbitrage: Deviations from the Risk-Return Tradeoff</div>
+                <div class="paper-authors">with B. Holcblat, A. Lioui </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Management Science</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Holcblat_Lioui_Weber_BeyondArbitrage_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title">Chat GPT and Corporate Policies</div> <span class="award">PanAgora Crowell Prize 2023 (Second Prize)</span></div>
+                <div class="paper-authors">with M. Jha, J. Qian, B. Yang </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Management Science</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Jha_EtAl_ChatGptCorporatePolicies_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/chatgpt-and-corporate-policies" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Do You Even Crypto, Bro? Cryptocurrencies in Household Finance</div>
+                <div class="paper-authors">with <a href="https://www.bernardocandia.com/" target="_blank">B. Candia</a>, <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a> </div>
+                <div class="status">Reject &amp; Resubmit, <strong>Journal of Finance</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Weber_EtAl_YouEvenCryptoBroCryptocurrencies_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/multimedia/coin-we-trust" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Greater Than the Sum of Its Parts: Aggregate vs. Aggregated Inflation Expectations</div>
+                <div class="paper-authors">with A. Dietrich, E.S. Knotek II, K.O. Myrseth, R.W. Rich, <a href="http://people.brandeis.edu/~schoenle/" target="_blank">R. Schoenle</a> </div>
+                <div class="status">Revise &amp; Resubmit, <strong>AEJ: Macroeconomics</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Dietrich_EtAl_GreaterThanSumParts_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Household Inflation Expectations: Taking Stock of Recent Insights for Monetary Policy</div>
+                <div class="paper-authors">with E. Charalambakis, <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://sites.google.com/view/georgarakos" target="_blank">D. Georgarakos</a>, <a href="https://www.ecb.europa.eu/pub/research/authors/profiles/geoff-kenny.en.html" target="_blank">G. Kenny</a>, J. Meyer </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Journal of Economic Surveys</strong></div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_EtAl_HouseholdInflationExpectations_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">How Costly Are Business Cycle Volatility and Inflation? A Vox Populi Approach</div>
+                <div class="paper-authors">with <a href="https://sites.google.com/view/georgarakos" target="_blank">D. Georgarakos</a>, K.H. Kim, <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a>, <a href="https://www.ecb.europa.eu/pub/research/authors/profiles/geoff-kenny.en.html" target="_blank">G. Kenny</a> </div>
+                <div class="status">Reject &amp; Resubmit, <strong>Quarterly Journal of Economics</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Georgarakos_EtAl_CostlyBusinessCycleVolatilityInflation_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Human Frictions to the Transmission of Economic Policy</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="http://finance.fbv.kit.edu/14_1038.php" target="_blank">D. Hoang</a>, <a href="https://ideas.repec.org/f/ppa314.html" target="_blank">M. Paloviita</a> </div>
+                <div class="status">Reject &amp; Resubmit, <strong>Journal of Finance</strong></div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_EtAl_HumanFrictionstotheTransmissionofEconomic Policy_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Imbalance and Reallocation of Funds under Chinese Quantity-based Monetary Policy</div>
+                <div class="paper-authors">with D. Luo, Z. Yang, Q. Zhang </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Management Science</strong></div>
+                </li>
+              <li class="paper-item">
+                <div class="paper-title">Inclusive Monetary Policy: How Tight Labor Markets Facilitate Broad-Based Employment Growth</div>
+                <div class="paper-authors">with <a href="https://www.tau.ac.il/~nittaib/" target="_blank">N. Bergman</a>, <a href="https://www.benjaminborn.de/" target="_blank">B. Born</a>, <a href="https://www.kellogg.northwestern.edu/faculty/matsa/htm/date.htm" target="_blank">D. Matsa</a> </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Journal of Monetary Economics</strong></div>
+                </li>
+              <li class="paper-item">
+                <div class="paper-title">Inflation Expectations and Gender Roles</div>
+                <div class="paper-authors">with F. Kindermann, J. LeBlanc </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Nature</strong></div>
+                </li>
+              <li class="paper-item">
+                <div class="paper-title">Nationalistic Labor Policies Hinder Financial Innovation</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, H. Huang, <a href="https://english.phbs.pku.edu.cn/info/3812/43942.htm" target="_blank">J. Xie</a>, L. Yang </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Review of Financial Studies</strong></div>
+                </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title">Nominal Rigidities and Asset Pricing</div> <span class="award">Top Finance Graduate Award 2014</span><span class="award">UBS Best Paper Prize EFA 2014</span><span class="award">EFA Best Doctoral Student Paper Prize 2014</span><span class="award">WFA Cubist Systematic Strategies PhD Award</span></div>
+                <div class="paper-authors">Michael Weber </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Journal of Political Economy</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Weber_NominalRigiditiesAssetPricing_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="appendix/appendix_Weber_NominalRigiditiesAssetPricing_WP.pdf" class="paper-link" target="_blank">Appendix</a>
+                  <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2478500" class="paper-link" target="_blank">SSRN</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Perceived Political Bias of the Federal Reserve</div>
+                <div class="paper-authors">with <a href="https://www.birmingham.ac.uk/schools/business/staff/profile.aspx?ReferenceId=44664" target="_blank">P. Kuang</a>, <a href="https://sites.google.com/view/shihanxie/" target="_blank">S. Xie</a> </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Journal of the European Economic Association</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Kuang_Weber_Xie_PerceivedPoliticalBiasFederalReserve_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/central-bank-communication-polarised-world" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Subjective Income Expectations and Household Debt Choices</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, X. Yin </div>
+                <div class="status">Reject &amp; Resubmit, <strong>American Economic Review</strong></div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Weber_Yin_SubjectiveIncomeExpectationsHouseholdDebt_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">The Long-term Effects of Inflation on Inflation Expectations</div>
+                <div class="paper-authors">with F. Braggion, F. von Meyerinck, N. Schaub </div>
+                <div class="status">Revise &amp; Resubmit, <strong>Review of Financial Studies</strong></div>
+                <div class="paper-links">
+                  <a href="papers/Braggion_EtAl_Long-termEffectsInflationInflationExpectations_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/long-term-scarring-effects-high-inflation-inflation-expectations" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">A Diverse Fed Can Reach Underrepresented Groups</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://sites.google.com/site/andreasfuster/Home" target="_blank">A. Fuster</a> </div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Fuster_Weber_DiverseFedCanReachUnderrepresented_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Cash me if you can: ATM explosions, payment choice, and consumption</div>
+                <div class="paper-authors">with E. Smajlbegovic, T. Spickers, D. Urban </div>
+                <div class="paper-links">
+                  <a href="papers/Smajlbegovic_EtAl_CashmeifyouCan_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Central Bank Communication with the Polarized Public</div>
+                <div class="paper-authors">with <a href="https://www.birmingham.ac.uk/schools/business/staff/profile.aspx?ReferenceId=44664" target="_blank">P. Kuang</a>, <a href="https://sites.google.com/view/shihanxie/" target="_blank">S. Xie</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Kuang_Weber_Xie_CentralBankCommunicationwiththePolarizedPublic_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/central-bank-communication-polarised-world" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Effective Policy Communication: Targets versus Instruments</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="http://finance.fbv.kit.edu/14_1038.php" target="_blank">D. Hoang</a>, <a href="https://ideas.repec.org/f/ppa314.html" target="_blank">M. Paloviita</a> </div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_EtAl_EffectivePolicyCommunication_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Fiscal Policy and Households&#x27; Inflation Expectations: Evidence from a Randomized Control Trial</div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_Gorodnichenko_Weber_FiscalPolicyHouseholdsInflationExpectations_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Five Facts About Inflation Expectations: Evidence from Four Different Groups of Agents</div>
+                <div class="paper-authors">with E. Granziera, L. Reiche, N. Maffei-Faccioli, T. Fastbo </div>
+                </li>  
+              <li class="paper-item">
+                <div class="paper-title">Households&#x27; Response to the Wealth Effects of Inflation</div>
+                <div class="paper-authors">with <a href="https://www.philipschnorpfeil.de/" target="_blank">P. Schnorpfeil</a>, <a href="https://www.old.wiwi.uni-frankfurt.de/en/departments/finance/lehrstuhl/prof-dr-andreas-hackethal/team/prof-dr-hackethal.html" target="_blank">A. Hackethal</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Schnorpfeil_Hackethal_Weber_HouseholdsResponseWealthEffectsInflation_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/households-response-wealth-effects-inflation" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">How Did U.S. Consumers Use Their Stimulus Payments?</div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_Gorodnichenko_Weber_USConsumersUseStimulus_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/how-us-consumers-used-their-stimulus-payments" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>  
+              <li class="paper-item">
+                <div class="paper-title">Labor Markets During the Covid-19 Crisis: A Preliminary View</div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_Gorodnichenko_Weber_LaborMarketsDuringCovid-19Crisis_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <a href="https://cepr.org/voxeu/columns/labour-markets-during-covid-19-crisis-preliminary-view" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Manpower Constraints and Corporate Policies</div>
+                <div class="paper-authors">with F. D’Acunto, S. Yang </div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Weber_Yang_ManpowerConstraintsandCorporatePolicies_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Monetary Momentum</div>
+                <div class="paper-authors">with <a href="https://aneuhierl.github.io/" target="_blank">A. Neuhierl</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Neuhierl_Weber_MonetaryMomentum_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>  
+              <li class="paper-item">
+                <div class="paper-title">Perceived Precautionary Savings: Evidence from FinTech</div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, T. Rauter, C. Scheuch </div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_EtAl_PerceivedPrecautionarySavings_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Political Preferences and Expected Economic Outcomes</div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a> </div>
+                <div class="paper-links">
+                  <a href="https://cepr.org/voxeu/columns/political-polarisation-and-expected-economic-outcomes" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li> 
+              <li class="paper-item">
+                <div class="paper-title">Who Feels the Boom? Labor Market Tightness and the Heterogeneous Employment Effects of Monetary Policy</div>
+                <div class="paper-authors">with <a href="https://www.tau.ac.il/~nittaib/" target="_blank">N. Bergman</a>, <a href="https://www.benjaminborn.de/" target="_blank">B. Born</a>, <a href="https://www.kellogg.northwestern.edu/faculty/matsa/htm/date.htm" target="_blank">D. Matsa</a> </div>
+                <div class="paper-links">
+                  <a href="papers/Bergman_EtAl_WhoFeelstheBoom_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>                                                                               
+          </ul>
+        </div>
+      </details>
+
+      <!-- ══ PUBLICATIONS ══════════════════════════════════════ -->
+      <details class="section-group" open>
+        <summary class="section-summary">
+          <span class="summary-left">Publications <span class="paper-count">37</span></span>
+        </summary>
+        <div class="paper-group-content">
+          <ul class="paper-list" style="padding:0.5rem 0 0 0;">
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rof/article-abstract/30/2/571/8381550" target="_blank">Climate Change and Individual Behavior</a></div>
+                <div class="paper-authors">with R. Bernard, <a href="https://www.bundesbank.de/en/panagiota-tzamourani" target="_blank">P. Tzamourani</a></div>
+                <div class="paper-venue"><em>Review of Finance</em>, 2026</div>
+                <div class="paper-links">
+                  <a href="papers/Bernard_Tzamourani_Weber_2026_ClimateChangeIndividualBehavior_RF.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2026Climate')">Cite</button>
+                  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4072248" class="paper-link" target="_blank">SSRN</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/article-abstract/39/5/1411/8362879" target="_blank">Monetary Policy Through Production Networks: Evidence from the Stock Market</a></div>
+                <div class="paper-authors">with A. Ozdagli</div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2026</div>
+                <div class="paper-links">
+                  <a href="papers/Ozdagli_Weber_2025_MonetaryPolicyThroughProductionNetworks_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2026Monetary')">Cite</button>
+                  <a href="http://www.nber.org/papers/w23424" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://www.cesifo.org/w/3JjBhkGZ9" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/advance-article-abstract/doi/10.1093/rfs/hhag011/8561088" target="_blank">Portfolios and Beliefs: Causal Evidence</a></div>
+                <div class="paper-authors">with J. Beutel</div>
+                <div class="paper-venue"><em>Review of Financial Studies</em></div>
+                <div class="paper-links">
+                  <a href="papers/Beutel_Weber_2026_PortfoliosBeliefs_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2026Portfolios')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.bis.org/publ/qtrpdf/r_qt2509c.htm" target="_blank">A Global Survey of Household Perceptions and Expectations</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, F. de Fiore, D. Sandri</div>
+                <div class="paper-venue"><em>BIS Quarterly Review</em>, 2025</div>
+                <div class="paper-links">
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025A')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1016/j.jfineco.2025.104166" target="_blank">Inflation and Trading</a></div>
+                <div class="paper-authors">with <a href="https://www.philipschnorpfeil.de/" target="_blank">P. Schnorpfeil</a>, <a href="https://www.old.wiwi.uni-frankfurt.de/en/departments/finance/lehrstuhl/prof-dr-andreas-hackethal/team/prof-dr-hackethal.html" target="_blank">A. Hackethal</a></div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em></div>
+                <div class="paper-links">
+                  <a href="papers/Schnorpfeil_Hackethal_Weber_2025_InflationTrading_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025Inflation')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/article/38/3/760/7815953" target="_blank">Missing Data in Asset Pricing Panels</a></div>
+                <div class="paper-authors">with <a href="https://econ.wisc.edu/staff/freyberger-joachim/" target="_blank">J. Freyberger</a>, B. Hoeppner, <a href="https://aneuhierl.github.io/" target="_blank">A. Neuhierl</a></div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2025</div>
+                <div class="paper-links">
+                  <a href="papers/Freyberger_EtAl_2025_MissingDataAssetPricingPanels_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025Missing')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://jfqa.org/2025/12/04/price-rigidities-and-credit-risk/" target="_blank">Price Rigidities and Credit Risk</a></div>
+                <div class="paper-authors">with <a href="https://patrickaugustin.ca/" target="_blank">P. Augustin</a>, F. Cong, A. Corhay</div>
+                <div class="paper-venue"><em>Journal of Financial and Quantitative Analysis</em>, 2025</div>
+                <div class="paper-links">
+                  <a href="papers/Augustin_EtAl_2025_PriceRigiditiesCreditRisk_JFQA.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025Price')">Cite</button>
+                  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3852082" class="paper-link" target="_blank">SSRN</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://pubsonline.informs.org/doi/10.1287/mnsc.2023.03309" target="_blank">Punish One, Teach A Hundred: The Sobering Effect of Punishment on the Unpunished</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://english.phbs.pku.edu.cn/info/3812/43942.htm" target="_blank">J. Xie</a></div>
+                <div class="paper-venue"><em>Management Science</em>, 2025</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Weber_Xie_2025_PunishOneTeachHundred_MS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025Punish')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.taylorfrancis.com/chapters/oa-edit/10.4324/9781003379010-8/subjective-inflation-expectations-households-francesco-acunto-michael-weber" target="_blank">Subjective Inflation Expectations of Households: Formation and Their Role in Economic Choices</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a></div>
+                <div class="paper-venue"><em>Handbook of Economic Expectations in Historical Perspective</em>, 2025</div>
+                <div class="paper-links">
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025SubjectiveHandbook')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/pandp.20251016" target="_blank">Subjective Models of Workers and Managers for Macroeconomic Expectations</a></div>
+                <div class="paper-authors">with C. Bruschi, <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://www.satenkumar.com/" target="_blank">S. Kumar</a></div>
+                <div class="paper-venue"><em>American Economic Review Papers and Proceedings</em>, 2025</div>
+                <div class="paper-links">
+                  <a href="papers/Bruschi_EtAl_SubjectiveModelsofWorkersandManagersforMacroeconomic_2025_AER_PP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025Subjective')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0167268124004608" target="_blank">The Cost of the COVID-19 Crisis: Lockdowns, Macroeconomic Expectations, and Consumer Spending</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>Journal of Economic Behavior and Organization</em>, 2025</div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_Gorodnichenko_Weber_2025_CostCovid-19Crisis_JEBO.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2025The')">Cite</button>
+                  <a href="https://www.nber.org/papers/w27141" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://cepr.org/voxeu/columns/cost-covid-19-crisis-lockdowns-macroeconomic-expectations-and-consumer-spending" class="paper-link" target="_blank">VoxEU</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/the-cost-of-the-covid-19-crisis-lockdowns-macroeconomic-expectations-and-consumer-spending/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2020/working-paper/cost-covid-19-crisis-lockdowns-macroeconomic-expectations-and" class="paper-link" target="_blank">CESifo</a>
+                  <a href="https://www.iza.org/publications/dp/13224/the-cost-of-the-covid-19-crisis-lockdowns-macroeconomic-expectations-and-consumer-spending" class="paper-link" target="_blank">IZA</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X24000813" target="_blank">Crowdsourcing Peer Information to Change Spending Behavior</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://sites.google.com/site/albertorossifrb/" target="_blank">A. Rossi</a></div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2024</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Rossi_Weber_2024_CrowdsourcingPeerInformationChangeSpending_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2024Crowdsourcing')">Cite</button>
+                  <a href="https://bfi.uchicago.edu/working-paper/crowdsourcing-financial-information-to-change-spending-behavior/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2019/working-paper/crowdsourcing-financial-information-change-spending-behavior" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/mac.20210460" target="_blank">Sectoral Heterogeneity in Nominal Price Rigidity and the Origin of Aggregate Fluctuations</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/pastenernesto/" target="_blank">E. Pasten</a>, <a href="http://people.brandeis.edu/~schoenle/" target="_blank">R. Schoenle</a></div>
+                <div class="paper-venue"><em>AEJ: Macroeconomics</em>, 2024</div>
+                <div class="paper-links">
+                  <a href="papers/Pasten_Schoenle_Weber_2024_SectoralHeterogeneityNominalPriceRigidity_AM.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2024Sectoral')">Cite</button>
+                  <a href="https://www.nber.org/papers/w23750" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/price-rigidity-and-the-origins-of-aggregate-fluctuations/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2018/working-paper/price-rigidity-and-origins-af-aggregate-fluctuations" class="paper-link" target="_blank">CESifo</a>
+                  <a href="https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2102.en.pdf" class="paper-link" target="_blank">ECB</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.annualreviews.org/content/journals/10.1146/annurev-economics-091523-043659" target="_blank">Why Survey-Based Subjective Expectations Are Meaningful and Important</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a></div>
+                <div class="paper-venue"><em>Annual Review of Economics</em>, 2024</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Weber_2024_WhySurvey-basedSubjectiveExpectationsMeaningful_ARE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2024Why')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/article/36/1/351/6585907" target="_blank">Cybersecurity Risk</a></div>
+                <div class="paper-authors">with <a href="https://www.florackis.com/" target="_blank">C. Florackis</a>, C. Louca, <a href="https://www.hkubs.hku.hk/people/roni-michaely/" target="_blank">R. Michaely</a></div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2023</div>
+                <div class="paper-links">
+                  <a href="papers/Florackis_EtAl_2023_CybersecurityRisk_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023Cybersecurity')">Cite</button>
+                  <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCVVG5" class="paper-link" target="_blank">Data</a>
+                  <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCVVG5" class="paper-link" target="_blank">Code</a>
+                  <a href="https://www.nber.org/papers/w28196" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/cybersecurity-risk/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2020/working-paper/cybersecurity-risk" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/jeea/article/21/5/2131/7005218" target="_blank">Forward Guidance and Household Expectations</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://sites.google.com/view/georgarakos" target="_blank">D. Georgarakos</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>Journal of the European Economic Association</em>, 2023</div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_EtAl_2023_ForwardGuidanceHouseholdExpectations_JEEA.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023Forward')">Cite</button>
+                  <a href="https://www.nber.org/papers/w26778" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/forward-guidance-and-household-expectations/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2020/working-paper/forward-guidance-and-household-expectations" class="paper-link" target="_blank">CESifo</a>
+                  <a href="https://www.iza.org/publications/dp/12979/forward-guidance-and-household-expectations" class="paper-link" target="_blank">IZA</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/advance-article/doi/10.1093/rfs/hhac021/6603135" target="_blank">High Inflation: Low Default Risk and Low Equity Valuations</a></div>
+                <div class="paper-authors">with <a href="http://www.harjoatbhamra.com/" target="_blank">H. Bhamra</a>, <a href="http://www.christiandorion.com" target="_blank">C. Dorion</a>, <a href="http://www.alexandrejeanneret.net" target="_blank">A. Jeanneret</a></div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2023</div>
+                <div class="paper-links">
+                  <a href="papers/Bhamra_EtAl_2023_HighInflation_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023High')">Cite</button>
+                  <a href="https://www.nber.org/papers/w25317" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2018/working-paper/low-inflation-high-default-risk-and-high-equity-valuations" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/pandp.20231034" target="_blank">Perceived and Expected Rates of Inflation for Firms in the U.S.</a></div>
+                <div class="paper-authors">with <a href="https://www.bernardocandia.com/" target="_blank">B. Candia</a>, <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>American Economic Review Papers and Proceedings</em>, 2023</div>
+                <div class="paper-links">
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023Perceived')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://link.springer.com/article/10.1057/s41308-022-00175-7" target="_blank">The Expected, Perceived, and Realized Inflation of U.S. Households Before and During the COVID-19 Pandemic</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>IMF Economic Review</em>, 2023</div>
+                <div class="paper-links">
+                  <a href="papers/Weber_Gorodnichenko_Coibion_2023_ExpectedPerceivedRealizedInflationU_IMF_ER.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023The')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/pandp.20231036" target="_blank">Unconventional Fiscal Policy at Work</a></div>
+                <div class="paper-authors">with <a href="https://sites.nd.edu/rbachman/" target="_blank">R. Bachmann</a>, <a href="https://www.benjaminborn.de/" target="_blank">B. Born</a>, <a href="https://sites.google.com/site/ogoldfayn/home" target="_blank">O. Goldfayn-Frank</a>, <a href="https://georgikocharkov.de/" target="_blank">G. Kocharkov</a>, <a href="https://www.ralphluetticke.com/" target="_blank">R. Luetticke</a></div>
+                <div class="paper-venue"><em>American Economic Review Papers and Proceedings</em>, 2023</div>
+                <div class="paper-links">
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2023Unconventional')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.ijcb.org/journal/ijcb22q1a1.htm" target="_blank">Does Policy Communication During COVID-19 Work?</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>International Journal of Central Banking</em>, 2022</div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_Gorodnichenko_Weber_2022_PolicyCommunicationDuringCovid-19Work_IJBC.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2022Does')">Cite</button>
+                  <a href="https://cepr.org/voxeu/columns/does-policy-communication-during-covid-19-work" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://academic.oup.com/rfs/article/35/4/1597/6322971" target="_blank">Managing Households&#x27; Expectations with Unconventional Policies</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="http://finance.fbv.kit.edu/14_1038.php" target="_blank">D. Hoang</a></div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2022</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Hoang_Weber_2022_ManagingHouseholdsExpectationsUnconventionalPolicies_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2022Managing')">Cite</button>
+                  <a href="https://www.nber.org/papers/w27399" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://cepr.org/voxeu/columns/rising-inflation-worrisome-not-reasons-you-think" class="paper-link" target="_blank">VoxEU</a>
+                  <a href="https://cepr.org/voxeu/columns/unconventional-fiscal-policy-exit-covid-19-crisis" class="paper-link" target="_blank">VoxEU</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2019/working-paper/managing-households-expectations-salient-economic-policies" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/jep.36.3.157" target="_blank">The Subjective Inflation Expectations of Households and Firms: Measurement, Determinants, and Implications</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/ocoibion/" target="_blank">O. Coibion</a>, <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>Journal of Economic Perspectives</em>, 2022</div>
+                <div class="paper-links">
+                  <a href="papers/Coibion_EtAl_2022_SubjectiveInflationExpectationsHouseholdsFirms_JEP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2022The')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.sciencedirect.com/science/article/pii/B9780128229279000124" target="_blank">What Do the Data Tell Us About Inflation Expectations?</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://eml.berkeley.edu/~ulrike/" target="_blank">U. Malmendier</a></div>
+                <div class="paper-venue"><em>Handbook of Economic Expectations</em>, 2022</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Malmendier_Weber_2022_WhatDataTellUsAbout_Handbook.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2022What')">Cite</button>
+                  <a href="https://cepr.org/voxeu/columns/learning-about-inflation-expectations-data" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1016/j.jfineco.2020.12.003" target="_blank">Estimating the Anomaly Baserate</a></div>
+                <div class="paper-authors">with A. Chinco, <a href="https://aneuhierl.github.io/" target="_blank">A. Neuhierl</a></div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2021</div>
+                <div class="paper-links">
+                  <a href="papers/Chinco_Neuhierl_Weber_2021_EstimatingAnomalyBaserate_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2021Estimating')">Cite</button>
+                  <a href="https://www.nber.org/papers/w26493" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/estimating-the-anomaly-base-rate/" class="paper-link" target="_blank">BFI</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.pnas.org/content/118/21/e2008534118" target="_blank">Gender Roles Produce Divergent Economic Expectations</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://eml.berkeley.edu/~ulrike/" target="_blank">U. Malmendier</a></div>
+                <div class="paper-venue"><em>Proceedings of the National Academy of Sciences</em>, 2021</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Malmendier_Weber_2021_GenderRolesProduceDivergentEconomic_PNAS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2021Gender')">Cite</button>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1016/j.jfineco.2020.08.013" target="_blank">Signaling Safety</a></div>
+                <div class="paper-authors">with <a href="https://www.hkubs.hku.hk/people/roni-michaely/" target="_blank">R. Michaely</a>, S. Rossi</div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2021</div>
+                <div class="paper-links">
+                  <a href="papers/Michaely_Rossi_Weber_2021_SignalingSafety_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2021Signaling')">Cite</button>
+                  <a href="https://www.nber.org/papers/w24237" class="paper-link" target="_blank">NBER</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1093/rfs/hhz123" target="_blank">Dissecting Anomalies Nonparametrically</a></div>
+                <div class="paper-authors">with <a href="https://aneuhierl.github.io/" target="_blank">A. Neuhierl</a>, <a href="https://econ.wisc.edu/staff/freyberger-joachim/" target="_blank">J. Freyberger</a></div>
+                <div class="paper-venue"><em>Review of Financial Studies</em>, 2020</div>
+                <div class="paper-links">
+                  <a href="papers/Freyberger_Neuhierl_Weber_2020_DissectingAnomaliesNonparametrically_RFS.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2020Dissecting')">Cite</button>
+                  <a href="http://www.nber.org/papers/w23227" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://www.cesifo.org/w/47Anvst98" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1016/j.jmoneco.2019.10.001" target="_blank">The Propagation of Monetary Policy Shocks in a Heterogeneous Production Economy</a></div>
+                <div class="paper-authors">with <a href="https://sites.google.com/site/pastenernesto/" target="_blank">E. Pasten</a>, <a href="http://people.brandeis.edu/~schoenle/" target="_blank">R. Schoenle</a></div>
+                <div class="paper-venue"><em>Journal of Monetary Economics</em>, 2020</div>
+                <div class="paper-links">
+                  <a href="papers/Pasten_Schoenle_Weber_2020_PropagationMonetaryPolicyShocksHeterogeneous_JME.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2020The')">Cite</button>
+                  <a href="data/data_Pasten_Schoenle_Weber_2020_PropagationMonetaryPolicyShocksHeterogeneous_JME.xlsx" class="paper-link" target="_blank">Data</a>
+                  <a href="https://www.nber.org/papers/w25303" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/the-propagation-of-monetary-policy-shocks-in-a-heterogeneous-production-economy/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2018/working-paper/propagation-monetary-policy-shocks-heterogeneous-production" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1093/restud/rdy021" target="_blank">Historical Antisemitism, Ethnic Specialization, and Financial Development</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="https://www.fcm.uni-hannover.de/en/prokopczuk" target="_blank">M. Prokopczuk</a></div>
+                <div class="paper-venue"><em>Review of Economic Studies</em>, 2019</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Prokopczuk_Weber_2019_HistoricalAntisemitismEthnicSpecializationFinancial_RES.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2019Historical')">Cite</button>
+                  <a href="http://www.nber.org/papers/w23785" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://cepr.org/voxeu/columns/distrust-finance-lingers-jewish-persecution-and-investments" class="paper-link" target="_blank">VoxEU</a>
+                  <a href="https://bfi.uchicago.edu/working-paper/historical-antisemitism-ethnic-specialization-and-financial-development/" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/en/publikationen/2017/working-paper/historical-antisemitism-ethnic-specialization-and-financial" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://doi.org/10.1016/j.jmoneco.2019.08.005" target="_blank">Monetary Policy Communication, Policy Slope, and the Stock Market</a></div>
+                <div class="paper-authors">with <a href="https://aneuhierl.github.io/" target="_blank">A. Neuhierl</a></div>
+                <div class="paper-venue"><em>Journal of Monetary Economics</em>, 2019</div>
+                <div class="paper-links">
+                  <a href="papers/Neuhierl_Weber_2019_MonetaryPolicyCommunicationPolicySlope_JME.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2019Monetary')">Cite</button>
+                  <a href="https://cepr.org/voxeu/columns/predictable-movements-asset-prices-around-fomc-meetings" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X18300667" target="_blank">Cash Flow Duration and the Term Structure of Equity Returns</a></div> <span class="award">Colloquium on Financial Markets Best Paper Award</span><span class="award">PanAgora Crowell Prize 2013 (Finalist)</span></div>
+                <div class="paper-authors">Michael Weber</div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2018</div>
+                <div class="paper-links">
+                  <a href="papers/Weber_2018_CashFlowDurationTermStructure_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2018Cash')">Cite</button>
+                  <a href="data/data_Weber_2018_CashFlowDurationTermStructure_JFE.xlsx" class="paper-link" target="_blank">Data</a>
+                  <a href="http://www.nber.org/papers/w22520" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/wp-content/uploads/SSRN-id2819206.pdf" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/w/iwCQ5Dg7" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.sciencedirect.com/science/article/pii/S0304405X18300801" target="_blank">Flexible Prices and Leverage</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, R. Liu, <a href="https://sites.google.com/view/carolin-pflueger/home" target="_blank">C. Pflueger</a></div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2018</div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_EtAl_2018_FlexiblePricesLeverage_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2018Flexible')">Cite</button>
+                  <a href="http://www.nber.org/papers/w23066" class="paper-link" target="_blank">NBER</a>
+                  <a href="https://bfi.uchicago.edu/wp-content/uploads/No.-2017-02.pdf" class="paper-link" target="_blank">BFI</a>
+                  <a href="https://www.cesifo.org/w/4Vtsh9uAk" class="paper-link" target="_blank">CESifo</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/pandp.20181061" target="_blank">Unconventional Fiscal Policy</a></div>
+                <div class="paper-authors">with <a href="http://www.francescodacunto.com/" target="_blank">F. D&#x27;Acunto</a>, <a href="http://finance.fbv.kit.edu/14_1038.php" target="_blank">D. Hoang</a></div>
+                <div class="paper-links">
+                  <a href="papers/DAcunto_Hoang_Weber_2018_UnconventionalFiscalPolicy_AER_PP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2018Unconventional')">Cite</button>
+                  <a href="https://cepr.org/voxeu/columns/fighting-deflation-unconventional-fiscal-policy" class="paper-link" target="_blank">VoxEU</a>
+                  <a href="https://cepr.org/voxeu/columns/inflation-expectations-spur-consumption" class="paper-link" target="_blank">VoxEU</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title"><a href="https://www.aeaweb.org/articles?id=10.1257/aer.20131513" target="_blank">Are Sticky Prices Costly? Evidence from the Stock Market</a></div> <span class="award">Biannual Chookaszian Endowed Risk Management Prize</span></div>
+                <div class="paper-authors">with <a href="https://eml.berkeley.edu/~ygorodni/" target="_blank">Y. Gorodnichenko</a></div>
+                <div class="paper-venue"><em>American Economic Review</em>, 2016</div>
+                <div class="paper-links">
+                  <a href="papers/Gorodnichenko_Weber_2016_StickyPricesCostlyEvidenceStock_AER.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2016Are')">Cite</button>
+                  <a href="appendix/appendix_Gorodnichenko_Weber_2016_StickyPricesCostlyEvidenceStock_AER.pdf" class="paper-link" target="_blank">Appendix</a>
+                  <a href="data/data_Gorodnichenko_Weber_2016_StickyPricesCostlyEvidenceStock_AER.xlsx" class="paper-link" target="_blank">Data</a>
+                  <a href="http://www.nber.org/papers/w18860" class="paper-link" target="_blank">NBER</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title"><a href="https://www.sciencedirect.com/science/article/pii/S0304405X14001378" target="_blank">Conditional Risk Premia in Currency Markets and Other Asset Classes</a></div> <span class="award">AQR Insight Award 2013 (First Prize)</span></div>
+                <div class="paper-authors">with <a href="https://haas.berkeley.edu/faculty/lettau-martin/" target="_blank">M. Lettau</a>, <a href="https://scholar.harvard.edu/maggiori/home" target="_blank">M. Maggiori</a></div>
+                <div class="paper-venue"><em>Journal of Financial Economics</em>, 2014</div>
+                <div class="paper-links">
+                  <a href="papers/Lettau_Maggiori_Weber_2014_ConditionalRiskPremiaCurrencyMarkets_JFE.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2014Conditional')">Cite</button>
+                  <a href="appendix/appendix_Lettau_Maggiori_Weber_2014_ConditionalRiskPremiaCurrencyMarkets_JFE.pdf" class="paper-link" target="_blank">Appendix</a>
+                  <a href="data/data_Lettau_Maggiori_Weber_2014_ConditionalRiskPremiaCurrencyMarkets_JFE.xlsx" class="paper-link" target="_blank">Data</a>
+                  <a href="http://www.nber.org/papers/w18844" class="paper-link" target="_blank">NBER</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title-row"><div class="paper-title"><a href="https://doi.org/10.1002/fut.20496" target="_blank">American Option Valuation: Implied Calibration of GARCH Pricing-Models</a></div> <span class="award">SEW Eurodrive Award for Best Undergraduate Thesis in Business Economics</span></div>
+                <div class="paper-authors">with <a href="https://www.fcm.uni-hannover.de/en/prokopczuk" target="_blank">M. Prokopczuk</a></div>
+                <div class="paper-venue"><em>Journal of Futures Markets</em>, 2011</div>
+                <div class="paper-links">
+                  <a href="papers/Weber_Prokopczuk_AmericanOptionValuation_2011_JFM.pdf" class="paper-link" target="_blank">Download Paper</a>
+                  <button class="paper-link cite-btn" onclick="showCite('Weber2011American')">Cite</button>
+                  <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1470686" class="paper-link" target="_blank">SSRN</a>
+                </div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Did Targeting Financial Constraints During COVID-19 Make Sense?</div>
+                <div class="paper-authors">with D. Boddin, F. D’Acunto </div>
+                <div class="paper-links">
+                  <a href="papers/Boddin_DAcunto_Weber_DidTargetingFinancialConstraintsDuringCOVID-19MakeSense_WP.pdf" class="paper-link" target="_blank">Download Paper</a>
+                </div>
+              </li>              
+          </ul>
+        </div>
+      </details>
+
+      <!-- ══ OTHER PUBLICATIONS ════════════════════════════════ -->
+      <details class="section-group">
+        <summary class="section-summary">
+          <span class="summary-left">Other Publications <span class="paper-count">11</span></span>
+        </summary>
+        <div class="paper-group-content">
+          <ul class="paper-list" style="padding:0.5rem 0 0 0;">
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.ifo.de/publikationen/2026/aufsatz-zeitschrift/narrative-kausalen-effekte" target="_blank">Narrative über die kausalen Effekte der Inflation auf den Aktienmarkt</a></div>
+                <div class="paper-authors" style="font-style:italic;">ifo Schnelldienst, 2026</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Taking Stock of Subjective Expectations: Global Facts vs. Models</div>
+                <div class="paper-authors" style="font-style:italic;">Econometric Society World Congress, 2026</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.ifo.de/publikationen/2025/aufsatz-zeitschrift/vertrauen-und-die-unabhaengigkeit-der-zentralbank" target="_blank">Vertrauen und die Unabhängigkeit der Zentralbank</a></div>
+                <div class="paper-authors" style="font-style:italic;">ifo Schnelldienst, 2025</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.imf.org/en/publications/fandd/issues/2023/03/shaping-expectations-michael-weber" target="_blank">Shaping Expectations</a></div>
+                <div class="paper-authors" style="font-style:italic;">IMF Finance &amp; Development, 2023</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title">Subjective Inflation Expectations and Monetary Policy Communication: The Role of Medium, Messenger, and Message</div>
+                <div class="paper-authors" style="font-style:italic;">Proceedings of the 10th Asian Monetary Policy Forum, 2023</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://link.springer.com/article/10.1057/s11369-022-00295-y" target="_blank">Subjective Inflation Expectations of Households</a></div>
+                <div class="paper-authors" style="font-style:italic;">Business Economics, 2022</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.ifo.de/en/publications/2022/article-journal/wie-soll-der-staat-klimaschutzmassnahmen-finanzieren-eine" target="_blank">Wie soll der Staat Klimaschutzmaßnahmen finanzieren? Eine repräsentative Befragung deutscher Haushalte</a></div>
+                <div class="paper-authors" style="font-style:italic;">ifo Schnelldienst, 2022</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.clevelandfed.org/publications/economic-commentary/ec-202111-expected-post-pandemic-consumption-and-scarred-expectations-from-covid19" target="_blank">Expected Post-Pandemic Consumption and Scarred Expectations from COVID-19</a></div>
+                <div class="paper-authors" style="font-style:italic;">Cleveland Fed, 2021</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.clevelandfed.org/publications/economic-commentary/ec-202008-consumers-and-covid19" target="_blank">Consumers and COVID-19: A Real-Time Survey</a></div>
+                <div class="paper-authors" style="font-style:italic;">Cleveland Fed, 2020</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://www.clevelandfed.org/publications/economic-commentary/ec-202020-survey-results-on-mask-wearing-behaviors-and-beliefs" target="_blank">Consumers and COVID-19: Survey Results on Mask-Wearing Behaviors and Beliefs</a></div>
+                <div class="paper-authors" style="font-style:italic;">Cleveland Fed, 2020</div>
+              </li>
+              <li class="paper-item">
+                <div class="paper-title"><a href="https://cepr.org/voxeu/columns/monetary-policy-communications-and-their-effects-household-inflation-expectations" target="_blank">Monetary Policy Communications and their Effects on Household Inflation Expectations</a></div>
+                <div class="paper-authors" style="font-style:italic;">VoxEU, 2019</div>
+              </li>
+          </ul>
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2026 Michael Weber &mdash; Last updated <span id="last-modified"></span>
+    <script>
+      const d = new Date(document.lastModified);
+      document.getElementById('last-modified').textContent =
+        d.toLocaleDateString('en-US', {month:'long', year:'numeric'});
+    </script>
+  </footer>
+
+  <script>
+    function showCite(key) {
+      document.getElementById('cite-pre').textContent = bibtexData[key] || '';
+      document.getElementById('cite-modal').classList.add('open');
+    }
+    function closeCite() {
+      document.getElementById('cite-modal').classList.remove('open');
+    }
+    function copyCite() {
+      navigator.clipboard.writeText(document.getElementById('cite-pre').textContent).then(() => {
+        const btn = document.getElementById('cite-copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+      });
+    }
+    document.getElementById('cite-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeCite(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCite(); });
+  </script>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

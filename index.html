@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Michael Weber — Professor of Finance at Purdue University and ESMT Berlin. Research in asset pricing, monetary policy, and household finance.">
+  <title>Michael Weber | Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <style>
+    :root {
+      --color-accent:    #1e3a5f;
+      --color-accent-lt: #2563a8;
+      --color-surface:   #f6f8fb;
+      --color-border:    #dde3ea;
+    }
+
+    a { color: #1e5799; }
+    a:hover { color: #1e3a5f; }
+    .nav-links a { color: var(--color-muted); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+    .section-title { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+
+    /* ── Circular photo ─────────────────────────── */
+    .sidebar-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--color-border);
+      display: block;
+      margin: 0 0 1.1rem 0;
+    }
+
+    /* ── Name ───────────────────────────────────── */
+    .sidebar-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Info block: role / institutions / affiliations ── */
+    .sidebar-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .sidebar-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.05rem;
+    }
+
+    .sidebar-inst {
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      line-height: 1.5;
+    }
+    .sidebar-inst a, .sidebar-affil a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .sidebar-inst a:hover, .sidebar-affil a:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+
+    .sidebar-affil {
+      font-size: 0.78rem;
+      color: var(--color-subtle);
+      line-height: 1.5;
+    }
+
+    .dot-sep {
+      margin: 0 0.2rem;
+      opacity: 0.45;
+    }
+
+    /* ── Icon button row ────────────────────────── */
+    .sidebar-links {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.28rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      text-decoration: none;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .sidebar-links a:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+      background: rgba(30,58,95,0.04);
+    }
+    .sidebar-links .icon {
+      width: 13px; height: 13px; flex-shrink: 0;
+    }
+
+    /* ── Bio text ───────────────────────────────── */
+    .bio-text {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Michael Weber</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="data-code.html">Data &amp; Code</a></li>
+      <li><a href="files/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle navigation" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+      </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+
+      <img src="images/weber.jpeg" alt="Michael Weber" class="sidebar-photo">
+
+      <div class="sidebar-name">Michael Weber</div>
+
+      <div class="sidebar-info">
+
+        <div class="sidebar-role">Professor of Finance</div>
+
+        <div class="sidebar-inst">
+          <a href="https://esmt.berlin/person/michael-weber" target="_blank">ESMT Berlin</a>
+          <span class="dot-sep">·</span>
+          <a href="https://www.business.purdue.edu/faculty/home.php?username=weber366" target="_blank">Purdue University</a>
+        </div>
+
+        <div class="sidebar-affil">
+          <a href="https://www.nber.org/people/michael_weber?page=1&perPage=50" target="_blank">NBER</a><span class="dot-sep">·</span><a href="https://cepr.org/about/people/michael-weber" target="_blank">CEPR</a><span class="dot-sep">·</span><a href="https://www.ifo.de/en/cesifo/network-member/weber-michael-0" target="_blank">CESifo</a><span class="dot-sep">·</span>Ifo
+        </div>
+
+      </div>
+
+      <ul class="sidebar-links">
+        <li>
+          <a href="mailto:weber366@purdue.edu">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
+            </svg>
+            Email
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=i4pS5EwAAAAJ&hl=en" target="_blank">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/michael-weber-6b3bb654/" target="_blank">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+      <p class="bio-text">
+        I am Professor of Finance at Purdue University and Alexander von Humboldt Professor at ESMT, where I direct the European Expectations Center. I currently serve as an academic consultant to several central banks and policy institutions, including the Bundesbank, the Bank for International Settlements, and the Federal Reserve Banks of Cleveland and Dallas. Previously, I was on the faculty of the University of Chicago Booth School of Business for 11 years.
+      </p>
+      <p class="bio-text">
+        My research interests include macroeconomics, asset pricing, international finance, and household finance. A central question running through my work is how expectations — about inflation, income, and policy — shape real economic outcomes for households and firms.
+      </p>
+      <p class="bio-text">
+        Outside of academia, you'll often find me on a road bike or in running shoes, usually telling myself that one more climb or a few more kilometers is a good idea. Endurance sports are how I recharge — and occasionally choose to suffer.
+      </p>
+
+      <div class="section-title">Recent Updates</div>
+      <p style="color: var(--color-muted); font-size: 0.93rem; padding: 1rem 0;">Coming soon.</p>
+
+    </main>
+  </div>
+
+<footer class="site-footer">
+  &copy; 2026 Michael Weber &mdash; Last updated <span id="last-modified"></span>
+  <script>
+    const d = new Date(document.lastModified);
+    document.getElementById('last-modified').textContent =
+      d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  </script>
+</footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

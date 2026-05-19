@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Posts and Updates — Michael Weber, Professor of Finance.">
+  <title>Blog | Michael Weber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --color-accent:    #1e3a5f;
+      --color-accent-lt: #2563a8;
+      --color-surface:   #f6f8fb;
+      --color-border:    #dde3ea;
+    }
+    /* Inline links slightly brighter for contrast */
+    .nav-links a { color: var(--color-muted); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+    .section-title { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    .sidebar-links a { color: var(--color-muted); }
+    .sidebar-links a:hover { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Michael Weber</a>
+        <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="data-code.html">Data &amp; Code</a></li>
+      <li><a href="files/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle navigation" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+      </div>
+  </nav>
+
+  <div class="page-wrapper no-sidebar">
+    <main class="main-content">
+
+      <div class="section-title">Posts &amp; Updates</div>
+      <p style="color: var(--color-muted); font-size: 0.93rem; padding: 1rem 0;">Coming soon.</p>
+
+    </main>
+  </div>
+
+<footer class="site-footer">
+  &copy; 2026 Michael Weber &mdash; Last updated <span id="last-modified"></span>
+  <script>
+    const d = new Date(document.lastModified);
+    document.getElementById('last-modified').textContent =
+      d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  </script>
+</footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

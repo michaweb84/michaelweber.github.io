@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data &amp; Code | Michael Weber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --color-accent:    #1e3a5f;
+      --color-accent-lt: #2563a8;
+      --color-surface:   #f6f8fb;
+      --color-border:    #dde3ea;
+    }
+    .nav-links a { color: var(--color-muted); }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+    .section-title { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    /* Paper title: dark text, navy on hover — same as research page */
+    .paper-title a { color: var(--color-text); text-decoration: none; }
+    .paper-title a:hover { color: var(--color-accent); text-decoration: underline; }
+    /* Match research page spacing */
+    .paper-item { padding: 0.9rem 0; border-bottom: 1px solid var(--color-border); }
+    .paper-item:last-child { border-bottom: none; }
+    .paper-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .paper-authors { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.4rem; }
+    .paper-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.45rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Michael Weber</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="data-code.html" class="active">Data &amp; Code</a></li>
+      <li><a href="files/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="talks.html">Talks</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle navigation" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+      </div>
+  </nav>
+
+  <div class="page-wrapper no-sidebar">
+    <main class="main-content">
+
+      <div class="section-title">Data &amp; Code</div>
+
+      <ul class="paper-list">
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20221167" target="_blank">The Effect of Macroeconomic Uncertainty on Household Spending</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>American Economic Review</em>, 2024</div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.3886/E184646V1" class="paper-link" target="_blank">Data &amp; Code</a>
+          </div>
+        </li>        
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://academic.oup.com/rfs/article/36/1/351/6585907" target="_blank">Cybersecurity Risk</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Review of Financial Studies</em>, 2023</div>
+          <div class="paper-links">
+            <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCVVG5" class="paper-link" target="_blank">Data &amp; Code</a>
+          </div>
+        </li>
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://academic.oup.com/restud/article/90/5/2292/6782973" target="_blank">IQ, Expectations, and Choice</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Review of Economic Studies</em>, 2023</div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.5281/zenodo.6012866" class="paper-link" target="_blank">Data &amp; Code</a>
+          </div>
+        </li>
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://www.pnas.org/content/118/21/e2008534118" target="_blank">Gender Roles Produce Divergent Economic Expectations</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Proceedings of the National Academy of Sciences</em>, 2021</div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.3886/E140001V2" class="paper-link" target="_blank">Data &amp; Code</a>
+          </div>
+        </li>
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://doi.org/10.1016/j.jmoneco.2019.10.001" target="_blank">The Propagation of Monetary Policy Shocks in a Heterogeneous Production Economy</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Journal of Monetary Economics</em>, 2020</div>
+          <div class="paper-links">
+            <a href="data & code/data_Pasten_Schoenle_Weber_2020_PropagationMonetaryPolicyShocksHeterogeneous_JME.xlsx" class="paper-link">Data</a>
+          </div>
+        </li>
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X18300667" target="_blank">Cash Flow Duration and the Term Structure of Equity Returns</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Journal of Financial Economics</em>, 2018</div>
+          <div class="paper-links">
+            <a href="data & code/data_Weber_2018_CashFlowDurationTermStructure_JFE.xlsx" class="paper-link">Data</a>
+          </div>
+        </li>
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20131513" target="_blank">Are Sticky Prices Costly? Evidence from the Stock Market</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>American Economic Review</em>, 2016</div>
+          <div class="paper-links">
+            <a href="https://doi.org/10.3886/E112963V1" class="paper-link">Data &amp; Code</a>
+          </div>
+        </li>            
+
+        <li class="paper-item">
+          <div class="paper-title">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0304405X14001378" target="_blank">Conditional Risk Premia in Currency Markets and Other Asset Classes</a>
+          </div>
+          <div class="paper-authors" style="font-style:italic;"><em>Journal of Financial Economics</em>, 2014</div>
+          <div class="paper-links">
+            <a href="data & code/data_Lettau_Maggiori_Weber_2014_ConditionalRiskPremiaCurrencyMarkets_JFE.xlsx" class="paper-link">Data</a>
+          </div>
+        </li>
+
+      </ul>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2026 Michael Weber &mdash; Last updated <span id="last-modified"></span>
+    <script>
+      const d = new Date(document.lastModified);
+      document.getElementById('last-modified').textContent =
+        d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    </script>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

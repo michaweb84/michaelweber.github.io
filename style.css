@@ -1,0 +1,546 @@
+/* ============================================================
+   MICHAEL WEBER — ACADEMIC WEBSITE
+   style.css
+   
+   HOW TO READ THIS FILE:
+   CSS is organized in layers — think of it like dressing:
+   1. Reset / base         (the bare skin)
+   2. Typography           (the fabric)
+   3. Layout               (the cut/structure)
+   4. Components           (individual items: nav, cards, etc.)
+   5. Page-specific tweaks (final tailoring)
+   ============================================================ */
+
+
+/* ── 1. CUSTOM PROPERTIES (variables) ─────────────────────────
+   CSS variables let you define a color ONCE and use it everywhere.
+   If you want to change the accent color, you change ONE line here.
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --color-bg:         #ffffff;
+  --color-text:       #1a1a1a;
+  --color-muted:      #555555;
+  --color-subtle:     #888888;
+  --color-accent:     #1e3a5f;       /* deep navy */
+  --color-accent-lt:  #2563a8;
+  --color-border:     #dde3ea;
+  --color-surface:    #f6f8fb;       /* cool off-white */
+
+  --font-sans:   'Source Sans 3', system-ui, sans-serif;
+  --font-serif:  'Spectral', Georgia, serif;
+  --font-mono:   'JetBrains Mono', monospace;
+
+  --nav-height:  60px;
+  --sidebar-w:   260px;
+  --content-max: 760px;
+  --gap:         2rem;
+}
+
+
+/* ── 2. RESET ──────────────────────────────────────────────────
+   Browsers have their own default styles that differ slightly.
+   A reset levels the playing field so we start from zero.
+   ────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;                   /* 1rem = 16px everywhere */
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-accent-lt);
+  text-decoration: underline;
+}
+
+
+/* ── 3. TYPOGRAPHY ─────────────────────────────────────────────
+   We use Spectral (serif) for display text and Source Sans 3
+   (sans-serif) for body text — a classic academic pairing.
+   ────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol {
+  padding-left: 1.4em;
+  margin-bottom: 1rem;
+}
+li { margin-bottom: 0.3rem; }
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+  margin-top: 2rem;
+}
+.section-title:first-child { margin-top: 0; }
+.section-title:first-child { margin-top: 0; }
+
+
+/* ── 4. NAVIGATION ─────────────────────────────────────────────
+   The nav bar sticks to the top of the screen (position: fixed).
+   Every page uses the same nav HTML, which means the same CSS
+   applies everywhere — one change, site-wide effect.
+   ────────────────────────────────────────────────────────────── */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  z-index: 1000;
+}
+
+/* Inner wrapper constrains nav content to match page body width */
+.site-nav > *,
+.site-nav .nav-brand,
+.site-nav .nav-links,
+.site-nav .nav-hamburger {
+  /* handled via nav-inner below */
+}
+
+.site-nav {
+  justify-content: center;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  white-space: nowrap;
+  margin-right: auto;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-brand:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover {
+  color: var(--color-accent);
+  background: rgba(30, 58, 95, 0.06);
+  text-decoration: none;
+}
+.nav-links a.active {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+
+/* ── 5. PAGE WRAPPER & SIDEBAR LAYOUT ─────────────────────────
+   The main layout is a two-column grid:
+   [sidebar 260px] [content flexible]
+   
+   CSS Grid is the modern way to build two-column layouts.
+   Think of it like a table, but much more flexible.
+   ────────────────────────────────────────────────────────────── */
+.page-wrapper {
+  margin-top: var(--nav-height);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Pages without a sidebar use this instead */
+.page-wrapper.no-sidebar {
+  grid-template-columns: 1fr;
+  max-width: 1100px;
+}
+
+
+/* ── 6. SIDEBAR ────────────────────────────────────────────────
+   position: sticky means the sidebar scrolls with the page
+   until it hits the top, then locks in place — so the photo
+   and name are always visible as you read down the content.
+   ────────────────────────────────────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+}
+
+.sidebar-photo {
+  width: 100%;
+  max-width: 210px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.sidebar-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-title {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.4rem;
+}
+
+.sidebar-links a {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color 0.15s;
+  text-decoration: none;
+}
+.sidebar-links a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.sidebar-links .icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 1.2rem 0;
+}
+
+
+/* ── 7. MAIN CONTENT AREA ──────────────────────────────────── */
+.main-content {
+  min-width: 0;                      /* prevents grid blowout */
+  padding-top: 0.5rem;
+}
+
+
+/* ── 8. BIO SECTION (homepage) ─────────────────────────────── */
+.bio-text {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.updates-list {
+  list-style: none;
+  padding: 0;
+}
+
+.updates-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.93rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+.updates-list li:last-child { border-bottom: none; }
+
+.update-date {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--color-subtle);
+  display: block;
+  margin-bottom: 0.15rem;
+  letter-spacing: 0.03em;
+}
+
+
+/* ── 9. PAPER CARDS (research page) ────────────────────────── */
+.paper-list {
+  list-style: none;
+  padding: 0;
+}
+
+.paper-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.paper-item:last-child { border-bottom: none; }
+
+.paper-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.paper-authors {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+.paper-venue {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.paper-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-muted);
+  transition: all 0.15s;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.paper-link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(30, 58, 95, 0.04);
+  text-decoration: none;
+}
+
+
+/* ── 10. TEACHING & TALKS ITEMS ─────────────────────────────── */
+.course-item,
+.talk-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.course-item:last-child,
+.talk-item:last-child { border-bottom: none; }
+
+.course-title,
+.talk-title {
+  font-weight: 600;
+  font-size: 0.97rem;
+  margin-bottom: 0.2rem;
+}
+
+.course-meta,
+.talk-meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+
+/* ── 11. DATA & CODE TABLE ───────────────────────────────────── */
+.data-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.data-item:last-child { border-bottom: none; }
+
+.data-name {
+  font-weight: 600;
+  font-size: 0.97rem;
+  margin-bottom: 0.2rem;
+}
+
+.data-desc {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+/* ── 12. BLOG / POSTS ────────────────────────────────────────── */
+.post-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.post-item:last-child { border-bottom: none; }
+
+.post-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.post-date {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--color-subtle);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.3rem;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+
+/* ── 13. FOOTER ──────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 2rem;
+  margin-top: 4rem;
+  font-size: 0.8rem;
+  color: var(--color-subtle);
+  text-align: center;
+}
+
+
+/* ── 14. RESPONSIVE (mobile) ─────────────────────────────────── */
+
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: var(--color-text);
+  margin-left: auto;
+}
+.nav-hamburger svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+}
+
+@media (max-width: 700px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .sidebar {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sidebar-photo { max-width: 140px; }
+
+  /* Show hamburger, hide nav links by default */
+  .nav-hamburger { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+    z-index: 999;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-links li:last-child a { border-bottom: none; }
+}
